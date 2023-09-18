@@ -36,7 +36,7 @@
           "color": {
             "field": "students",
             "type": "quantitative",
-            "scale": {"type": "log"},
+            "scale": {"type": "sequential"},
             "title": "Number of Students"
           },
           "tooltip": [
