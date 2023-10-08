@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vega-Lite Year Selector Horizontal Bar Chart</title>
+  <!-- Include Vega and Vega-Lite -->
+  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body>
+  <label for="selectedYear">Select Year:</label>
+  <input type="range" id="selectedYear" min="2013" max="2022" step="1" value="2013">
+  <br>
+  <div id="selectedYearValue">Selected Year: 2013</div>
+  <div id="chartContainer" style="width: 650px; height: 400px;"></div>
+
+  <script>
+    // Sample dataset for Australia and New Zealand
+    const data = {
+      values: [
+        {"year": "2013", "country": "New Zealand", "value": 348685},
+        {"year": "2013", "country": "Australia", "value": 245531},
+        {"year": "2014", "country": "New Zealand", "value": 347645},
+        {"year": "2014", "country": "Australia", "value": 247093},
+        {"year": "2015", "country": "New Zealand", "value": 350440},
+        {"year": "2015", "country": "Australia", "value": 269752},
+        {"year": "2016", "country": "New Zealand", "value": 353120},
+        {"year": "2016", "country": "Australia", "value": 292352},
+        {"year": "2017", "country": "New Zealand", "value": 346045},
+        {"year": "2017", "country": "Australia", "value": 327606},
+        {"year": "2018", "country": "New Zealand", "value": 340710},
+        {"year": "2018", "country": "Australia", "value": 371885},
+        {"year": "2019", "country": "New Zealand", "value": 335365},
+        {"year": "2019", "country": "Australia", "value": 420501},
+        {"year": "2020", "country": "New Zealand", "value": 328250},
+        {"year": "2020", "country": "Australia", "value": 463643},
+        {"year": "2021", "country": "New Zealand", "value": 345005},
+        {"year": "2021", "country": "Australia", "value": 429382},
+        {"year": "2022", "country": "New Zealand", "value": 329690},
+        {"year": "2022", "country": "Australia", "value": 363859}
+      ]
+    };
+
+    // Vega-Lite specification for the horizontal bar chart with tooltip
+    const spec = {
+      "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+      "width": 800, // Increase width
+      "height": 200, // Increase height
+      "data": data,
+      "mark": {"type": "bar", "tooltip": true},
+      "encoding": {
+        "y": {
+          "field": "country",
+          "type": "nominal",
+          "title": "Country",
+          "axis": {"labelFont": "sans-serif"},
+          "sort": {"op": "sum", "field": "value", "order": "descending"}
+        },
+        "x": {
+          "field": "value",
+          "type": "quantitative",
+          "title": "Number of Students",
+          "axis": {"labelFont": "sans-serif"}
+        },
+        "color": {
+          "field": "country",
+          "type": "nominal",
+          "scale": {
+            "range": ["#1f77b4", "#ff7f0e"] // Color-blind-friendly palette
+          }
+        }
+      },
+      "title": {"text": "Number of Students in Australia vs. New Zealand", "font": "sans-serif", "fontSize": 20}, // Increase title fontSize
+      "config": {
+        "view": {"stroke": "transparent"}
+      }
+    };
+
+    // Function to update the chart based on the selected year
+    function updateChart(selectedYear) {
+      // Filter the data for the selected year
+      const selectedData = data.values.filter(dataPoint => dataPoint.year === selectedYear);
+
+      // Update the dataset in the specification
+      const modifiedSpec = {
+        ...spec,
+        data: { values: selectedData },
+      };
+
+      // Embed the updated specification
+      vegaEmbed("#chartContainer", modifiedSpec);
+
+      // Display the selected year
+      document.getElementById("selectedYearValue").textContent = `Selected Year: ${selectedYear}`;
+    }
+
+    // Add event listener to the year slider
+    const selectedYearSlider = document.getElementById("selectedYear");
+
+    selectedYearSlider.addEventListener("input", () => {
+      const selectedYear = selectedYearSlider.value;
+      updateChart(selectedYear);
+    });
+
+    // Initial chart rendering with the default year
+    const initialYear = selectedYearSlider.value;
+    updateChart(initialYear);
+  </script>
+</body>
+</html>
