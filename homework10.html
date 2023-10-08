@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Combined Charts</title>
+  <!-- Include Vega and Vega-Lite -->
+  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+  <!-- Include Vega Tooltip -->
+  <script src="https://cdn.jsdelivr.net/npm/vega-tooltip@0.25.0"></script>
+</head>
+<body>
+  <div id="lineChart"></div>
+  <label for="startYear"></label>
+  <br>
+  <input type="range" id="startYear" min="2013" max="2022" step="1" value="2013">
+  <input type="range" id="endYear" min="2013" max="2022" step="1" value="2022">
+  <br>
+  <span id="selectedRange"></span>
+  <div id="legend"></div> <!-- Add a div for the legend -->
+  <div id="barChart" style="margin-top: 20px;"></div>
+  <div id="barChart"></div>
+  <label for="selectedYear">Select Year:</label>
+  <input type="range" id="selectedYear" min="2013" max="2022" step="1" value="2013">
+  <br>
+  <span id="selectedYearValue"></span>
+
+  <script>
+    // Sample dataset for the line chart
+    const lineChartData = {
+      values: [
+        {"year": "2013", "visa_grant_rate": 0.934, "international_students": 245531},
+        {"year": "2014", "visa_grant_rate": 0.92, "international_students": 247093},
+        {"year": "2015", "visa_grant_rate": 0.907, "international_students": 269752},
+        {"year": "2016", "visa_grant_rate": 0.915, "international_students": 292352},
+        {"year": "2017", "visa_grant_rate": 0.905, "international_students": 327606},
+        {"year": "2018", "visa_grant_rate": 0.899, "international_students": 371885},
+        {"year": "2019", "visa_grant_rate": 0.914, "international_students": 420501},
+        {"year": "2020", "visa_grant_rate": 0.944, "international_students": 463643},
+        {"year": "2021", "visa_grant_rate": 0.915, "international_students": 429382},
+        {"year": "2022", "visa_grant_rate": 0.86, "international_students": 363859}
+      ]
+    };
+
+    // Vega-Lite specification for the line chart
+    const lineChartSpec = {
+      "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+      "data": lineChartData,
+      "layer": [
+        {
+          "mark": "line",
+          "encoding": {
+            "x": {
+              "field": "year",
+              "type": "temporal",
+              "title": "Year",
+              "axis": {"format": "%Y"}
+            },
+            "y": {
+              "field": "visa_grant_rate",
+              "type": "quantitative",
+              "title": "Visa Grant Rate",
+              "axis": {"orient": "right"}
+            },
+            "color": {"value": "steelblue"},
+            "tooltip": [ // Add tooltip configuration
+              {"field": "year", "title": "Year", "type": "temporal", "format": "%Y"},
+              {"field": "visa_grant_rate", "title": "Visa Grant Rate", "type": "quantitative"},
+              {"field": "international_students", "title": "Number of International Students", "type": "quantitative"}
+            ]
+          }
+        },
+        {
+          "mark": "line",
+          "encoding": {
+            "x": {
+              "field": "year",
+              "type": "temporal",
+              "title": "Year",
+              "axis": {"format": "%Y"}
+            },
+            "y": {
+              "field": "international_students",
+              "type": "quantitative",
+              "title": "Number of International Students",
+              "axis": {"orient": "left"}
+            },
+            "color": {"value": "orange"},
+            "tooltip": [ // Add tooltip configuration
+              {"field": "year", "title": "Year", "type": "temporal", "format": "%Y"},
+              {"field": "visa_grant_rate", "title": "Visa Grant Rate", "type": "quantitative"},
+              {"field": "international_students", "title": "Number of International Students", "type": "quantitative"}
+            ]
+          }
+        }
+      ],
+      "resolve": {"scale": {"y": "independent"}},
+      "title": "Relationship between Visa Grant Rate and Number of International Students",
+      "config": {
+        "view": {"stroke": "transparent"},
+        "axis": {"grid": false}
+      }
+    };
+
+    // Sample dataset for the bar chart
+    const barChartData = {
+      values: [
+        {"year": "2013", "country": "New Zealand", "value": 348685},
+        {"year": "2013", "country": "Australia", "value": 245531},
+        {"year": "2014", "country": "New Zealand", "value": 347645},
+        {"year": "2014", "country": "Australia", "value": 247093},
+        {"year": "2015", "country": "New Zealand", "value": 350440},
+        {"year": "2015", "country": "Australia", "value": 269752},
+        {"year": "2016", "country": "New Zealand", "value": 353120},
+        {"year": "2016", "country": "Australia", "value": 292352},
+        {"year": "2017", "country": "New Zealand", "value": 346045},
+        {"year": "2017", "country": "Australia", "value": 327606},
+        {"year": "2018", "country": "New Zealand", "value": 340710},
+        {"year": "2018", "country": "Australia", "value": 371885},
+        {"year": "2019", "country": "New Zealand", "value": 335365},
+        {"year": "2019", "country": "Australia", "value": 420501},
+        {"year": "2020", "country": "New Zealand", "value": 328250},
+        {"year": "2020", "country": "Australia", "value": 463643},
+        {"year": "2021", "country": "New Zealand", "value": 345005},
+        {"year": "2021", "country": "Australia", "value": 429382},
+        {"year": "2022", "country": "New Zealand", "value": 329690},
+        {"year": "2022", "country": "Australia", "value": 363859}
+      ]
+    };
+
+    // Vega-Lite specification for the bar chart
+    const barChartSpec = {
+      "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+      "data": barChartData,
+      "mark": {"type": "rect", "tooltip": true},
+      "encoding": {
+        "x": {"field": "country", "type": "nominal", "title": "Country"},
+        "y": {"field": "value", "type": "quantitative", "title": "Number of Students"},
+        "color": {"field": "country", "type": "nominal"}
+      },
+      "title": "Number of Students in Australia vs. New Zealand",
+      "config": {
+        "view": {"stroke": "transparent"}
+      }
+    };
+
+    // Function to update the line chart based on the selected year range
+    function updateLineChart(startYear, endYear) {
+      // Filter the data to include only the selected year range
+      const filteredData = lineChartData.values.filter(dataPoint => dataPoint.year >= startYear && dataPoint.year <= endYear);
+
+      // Create a new dataset with the filtered data
+      const filteredDataset = {
+        ...lineChartData,
+        values: filteredData,
+      };
+
+      // Update the dataset in the specification
+      const modifiedLineChartSpec = {
+        ...lineChartSpec,
+        data: filteredDataset,
+      };
+
+      // Embed the updated specification
+      vegaEmbed("#lineChart", modifiedLineChartSpec);
+
+      // Display the selected year range
+      document.getElementById("selectedRange").textContent = `Selected Year Range: ${startYear} - ${endYear}`;
+    }
+
+    // Function to update the bar chart based on the selected year
+    function updateBarChart(selectedYear) {
+      // Filter the data for the selected year
+      const selectedData = barChartData.values.filter(dataPoint => dataPoint.year === selectedYear);
+
+      // Update the dataset in the specification
+      const modifiedBarChartSpec = {
+        ...barChartSpec,
+        data: { values: selectedData },
+      };
+
+      // Embed the updated specification
+      vegaEmbed("#barChart", modifiedBarChartSpec);
+
+      // Display the selected year
+      document.getElementById("selectedYearValue").textContent = `Selected Year: ${selectedYear}`;
+    }
+
+    // Function to update the legend
+    function updateLegend() {
+      // You can customize the legend content here based on your requirements
+      const legendHTML = `
+        <div><span style="color: steelblue;">&#9679;</span> Visa Grant Rate</div>
+        <div><span style="color: orange;">&#9679;</span> Number of Students</div>
+      `;
+
+      // Update the legend div with the new content
+      document.getElementById("legend").innerHTML = legendHTML;
+    }
+
+    // Add event listeners to the year range sliders for the line chart
+    const startYearSlider = document.getElementById("startYear");
+    const endYearSlider = document.getElementById("endYear");
+
+    startYearSlider.addEventListener("input", () => {
+      const startYear = parseInt(startYearSlider.value);
+      const endYear = parseInt(endYearSlider.value);
+      if (startYear <= endYear) {
+        updateLineChart(startYear, endYear);
+        updateLegend(); // Update the legend when the chart changes
+      }
+    });
+
+    endYearSlider.addEventListener("input", () => {
+      const startYear = parseInt(startYearSlider.value);
+      const endYear = parseInt(endYearSlider.value);
+      if (startYear <= endYear) {
+        updateLineChart(startYear, endYear);
+        updateLegend(); // Update the legend when the chart changes
+      }
+    });
+
+    // Add event listener to the year slider for the bar chart
+    const selectedYearSlider = document.getElementById("selectedYear");
+
+    selectedYearSlider.addEventListener("input", () => {
+      const selectedYear = selectedYearSlider.value;
+      updateBarChart(selectedYear);
+    });
+
+    // Initial chart rendering for both line and bar charts
+    vegaEmbed("#lineChart", lineChartSpec);
+    vegaEmbed("#barChart", barChartSpec);
+    updateLegend(); // Initialize the legend
+  </script>
+</body>
+</html>
