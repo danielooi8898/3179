@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            text-align: center; /* Center align the content */
+        }
+        h1, h2, h3 {
+            text-align: center;
+        }
+        .viz-container {
+            width: 80%; /* Make the divs smaller */
+            margin: 20px auto; /* Center align the divs */
+            border: 1px solid #ddd; /* Add a border for separation */
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #f8f8f8;
+        }
+        iframe {
+            width: 100%; /* Occupy 100% of the parent div */
+            height: 300px;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>International Students Enrolment</h1>
+        <p>Author: Mun Hong</p>
+        <p>Date: 21-09-2023</p>
+        <p>The main task of this visualization is to compare the number of students enrolled in different countries, analyze the contributing factors to students' decisions to study in a particular country, visualize which Australian state has the highest number of students, analyze the relationship between visa grant rate and the number of enrollments, and finally compare the number of students in Australia and New Zealand.</p>
+
+        <div class="viz-container">
+            <h3>Comparing number of students enrolled in different countries</h3>
+            <iframe src="choropleth_map.html"></iframe>
+        </div>
+        <p>The choropleth map shows the number of international student enrollments by countries from 2013 to 2022, with a focus on countries such as the USA, UK, and Australia.</p>
+
+        <div class="viz-container">
+            <h3>Analyze the contributing factors to students' decision to study in a particular country</h3>
+            <iframe src="tree_map.html"></iframe>
+        </div>
+        <p>Factors affecting students' decisions to select a country for their studies are grouped into categories. Hover over each tile to see the percentage of students who selected that particular factor.</p>
+
+        <div class="viz-container">
+            <h3>Visualize which Australian state has the highest number of students</h3>
+            <iframe src="bubble_map.html"></iframe>
+        </div>
+        <p>The bubble map shows that Victoria and New South Wales have the highest number of student enrollments, while Tasmania has the least.</p>
+
+        <!-- Bar chart -->
+        <div class="viz-container">
+            <h3>Number of Students in Australia vs. New Zealand</h3>
+            <iframe src="visualisation2NewZealandVsAustralia.html"></iframe>
+        </div>
+
+        <!-- Line chart -->
+        <div class="viz-container">
+            <h3>Relationship between Visa Grant Rate and Number of International Students</h3>
+            <iframe src="visualisation2VisaGrantRateVsEnrolment.html"></iframe>
+        </div>
+    </div>
+</body>
+</html>
