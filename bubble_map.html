@@ -1,0 +1,1317 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/vega@5.25.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.15.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.22.2"></script>
+</head>
+<body>
+  <div id="vis"/>
+  <script>
+    const spec = {
+  "$schema": "https://vega.github.io/schema/vega/v5.json",
+  "description": "Bubble Map of International Students in Australian States",
+  "background": "white",
+  "padding": 5,
+  "width": 200,
+  "height": 200,
+  "style": "view",
+  "data": [
+    {
+      "name": "source_0",
+      "values": [
+        {
+          "State": "NSW",
+          "Year": 2002,
+          "Total Students": 1045615,
+          "Longitude": 147.144,
+          "Latitude": -33.887
+        },
+        {
+          "State": "NSW",
+          "Year": 2003,
+          "Total Students": 1143128,
+          "Longitude": 147.144,
+          "Latitude": -33.887
+        },
+        {
+          "State": "NSW",
+          "Year": 2004,
+          "Total Students": 1221072,
+          "Longitude": 147.144,
+          "Latitude": -33.887
+        },
+        {
+          "State": "NSW",
+          "Year": 2005,
+          "Total Students": 1315329,
+          "Longitude": 147.144,
+          "Latitude": -33.887
+        },
+        {
+          "State": "NSW",
+          "Year": 2006,
+          "Total Students": 1441725,
+          "Longitude": 147.144,
+          "Latitude": -33.887
+        },
+        {
+          "State": "NSW",
+          "Year": 2007,
+          "Total Students": 1695944,
+          "Longitude": 147.144,
+          "Latitude": -33.887
+        },
+        {
+          "State": "NSW",
+          "Year": 2008,
+          "Total Students": 1995746,
+          "Longitude": 147.144,
+          "Latitude": -33.887
+        },
+        {
+          "State": "NSW",
+          "Year": 2009,
+          "Total Students": 2259253,
+          "Longitude": 147.144,
+          "Latitude": -33.887
+        },
+        {
+          "State": "NSW",
+          "Year": 2010,
+          "Total Students": 2209837,
+          "Longitude": 147.144,
+          "Latitude": -33.887
+        },
+        {
+          "State": "NSW",
+          "Year": 2011,
+          "Total Students": 1995986,
+          "Longitude": 147.144,
+          "Latitude": -33.887
+        },
+        {
+          "State": "NSW",
+          "Year": 2012,
+          "Total Students": 1838343,
+          "Longitude": 147.144,
+          "Latitude": -33.887
+        },
+        {
+          "State": "NSW",
+          "Year": 2013,
+          "Total Students": 1817575,
+          "Longitude": 147.144,
+          "Latitude": -33.887
+        },
+        {
+          "State": "NSW",
+          "Year": 2014,
+          "Total Students": 1996704,
+          "Longitude": 147.144,
+          "Latitude": -33.887
+        },
+        {
+          "State": "NSW",
+          "Year": 2015,
+          "Total Students": 2219330,
+          "Longitude": 147.144,
+          "Latitude": -33.887
+        },
+        {
+          "State": "NSW",
+          "Year": 2016,
+          "Total Students": 2478788,
+          "Longitude": 147.144,
+          "Latitude": -33.887
+        },
+        {
+          "State": "NSW",
+          "Year": 2017,
+          "Total Students": 2836895,
+          "Longitude": 147.144,
+          "Latitude": -33.887
+        },
+        {
+          "State": "NSW",
+          "Year": 2018,
+          "Total Students": 3175622,
+          "Longitude": 147.144,
+          "Latitude": -33.887
+        },
+        {
+          "State": "NSW",
+          "Year": 2019,
+          "Total Students": 3476505,
+          "Longitude": 147.144,
+          "Latitude": -33.887
+        },
+        {
+          "State": "NSW",
+          "Year": 2020,
+          "Total Students": 3403288,
+          "Longitude": 147.144,
+          "Latitude": -33.887
+        },
+        {
+          "State": "NSW",
+          "Year": 2021,
+          "Total Students": 2818452,
+          "Longitude": 147.144,
+          "Latitude": -33.887
+        },
+        {
+          "State": "NSW",
+          "Year": 2022,
+          "Total Students": 2740222,
+          "Longitude": 147.144,
+          "Latitude": -33.887
+        },
+        {
+          "State": "VIC",
+          "Year": 2002,
+          "Total Students": 727333,
+          "Longitude": 144.963,
+          "Latitude": -37.814
+        },
+        {
+          "State": "VIC",
+          "Year": 2003,
+          "Total Students": 835189,
+          "Longitude": 144.963,
+          "Latitude": -37.814
+        },
+        {
+          "State": "VIC",
+          "Year": 2004,
+          "Total Students": 896955,
+          "Longitude": 144.963,
+          "Latitude": -37.814
+        },
+        {
+          "State": "VIC",
+          "Year": 2005,
+          "Total Students": 949261,
+          "Longitude": 144.963,
+          "Latitude": -37.814
+        },
+        {
+          "State": "VIC",
+          "Year": 2006,
+          "Total Students": 1042120,
+          "Longitude": 144.963,
+          "Latitude": -37.814
+        },
+        {
+          "State": "VIC",
+          "Year": 2007,
+          "Total Students": 1270629,
+          "Longitude": 144.963,
+          "Latitude": -37.814
+        },
+        {
+          "State": "VIC",
+          "Year": 2008,
+          "Total Students": 1521460,
+          "Longitude": 144.963,
+          "Latitude": -37.814
+        },
+        {
+          "State": "VIC",
+          "Year": 2009,
+          "Total Students": 1830716,
+          "Longitude": 144.963,
+          "Latitude": -37.814
+        },
+        {
+          "State": "VIC",
+          "Year": 2010,
+          "Total Students": 1802757,
+          "Longitude": 144.963,
+          "Latitude": -37.814
+        },
+        {
+          "State": "VIC",
+          "Year": 2011,
+          "Total Students": 1592763,
+          "Longitude": 144.963,
+          "Latitude": -37.814
+        },
+        {
+          "State": "VIC",
+          "Year": 2012,
+          "Total Students": 1447805,
+          "Longitude": 144.963,
+          "Latitude": -37.814
+        },
+        {
+          "State": "VIC",
+          "Year": 2013,
+          "Total Students": 1443616,
+          "Longitude": 144.963,
+          "Latitude": -37.814
+        },
+        {
+          "State": "VIC",
+          "Year": 2014,
+          "Total Students": 1627655,
+          "Longitude": 144.963,
+          "Latitude": -37.814
+        },
+        {
+          "State": "VIC",
+          "Year": 2015,
+          "Total Students": 1834869,
+          "Longitude": 144.963,
+          "Latitude": -37.814
+        },
+        {
+          "State": "VIC",
+          "Year": 2016,
+          "Total Students": 2080655,
+          "Longitude": 144.963,
+          "Latitude": -37.814
+        },
+        {
+          "State": "VIC",
+          "Year": 2017,
+          "Total Students": 2402882,
+          "Longitude": 144.963,
+          "Latitude": -37.814
+        },
+        {
+          "State": "VIC",
+          "Year": 2018,
+          "Total Students": 2681468,
+          "Longitude": 144.963,
+          "Latitude": -37.814
+        },
+        {
+          "State": "VIC",
+          "Year": 2019,
+          "Total Students": 2949359,
+          "Longitude": 144.963,
+          "Latitude": -37.814
+        },
+        {
+          "State": "VIC",
+          "Year": 2020,
+          "Total Students": 2881322,
+          "Longitude": 144.963,
+          "Latitude": -37.814
+        },
+        {
+          "State": "VIC",
+          "Year": 2021,
+          "Total Students": 2355125,
+          "Longitude": 144.963,
+          "Latitude": -37.814
+        },
+        {
+          "State": "VIC",
+          "Year": 2022,
+          "Total Students": 2106668,
+          "Longitude": 144.963,
+          "Latitude": -37.814
+        },
+        {
+          "State": "QLD",
+          "Year": 2002,
+          "Total Students": 413395,
+          "Longitude": 153.025,
+          "Latitude": -27.471
+        },
+        {
+          "State": "QLD",
+          "Year": 2003,
+          "Total Students": 477125,
+          "Longitude": 153.025,
+          "Latitude": -27.471
+        },
+        {
+          "State": "QLD",
+          "Year": 2004,
+          "Total Students": 519633,
+          "Longitude": 153.025,
+          "Latitude": -27.471
+        },
+        {
+          "State": "QLD",
+          "Year": 2005,
+          "Total Students": 538856,
+          "Longitude": 153.025,
+          "Latitude": -27.471
+        },
+        {
+          "State": "QLD",
+          "Year": 2006,
+          "Total Students": 578738,
+          "Longitude": 153.025,
+          "Latitude": -27.471
+        },
+        {
+          "State": "QLD",
+          "Year": 2007,
+          "Total Students": 629709,
+          "Longitude": 153.025,
+          "Latitude": -27.471
+        },
+        {
+          "State": "QLD",
+          "Year": 2008,
+          "Total Students": 761687,
+          "Longitude": 153.025,
+          "Latitude": -27.471
+        },
+        {
+          "State": "QLD",
+          "Year": 2009,
+          "Total Students": 944725,
+          "Longitude": 153.025,
+          "Latitude": -27.471
+        },
+        {
+          "State": "QLD",
+          "Year": 2010,
+          "Total Students": 980617,
+          "Longitude": 153.025,
+          "Latitude": -27.471
+        },
+        {
+          "State": "QLD",
+          "Year": 2011,
+          "Total Students": 888584,
+          "Longitude": 153.025,
+          "Latitude": -27.471
+        },
+        {
+          "State": "QLD",
+          "Year": 2012,
+          "Total Students": 813313,
+          "Longitude": 153.025,
+          "Latitude": -27.471
+        },
+        {
+          "State": "QLD",
+          "Year": 2013,
+          "Total Students": 802586,
+          "Longitude": 153.025,
+          "Latitude": -27.471
+        },
+        {
+          "State": "QLD",
+          "Year": 2014,
+          "Total Students": 886670,
+          "Longitude": 153.025,
+          "Latitude": -27.471
+        },
+        {
+          "State": "QLD",
+          "Year": 2015,
+          "Total Students": 944208,
+          "Longitude": 153.025,
+          "Latitude": -27.471
+        },
+        {
+          "State": "QLD",
+          "Year": 2016,
+          "Total Students": 1022272,
+          "Longitude": 153.025,
+          "Latitude": -27.471
+        },
+        {
+          "State": "QLD",
+          "Year": 2017,
+          "Total Students": 1142573,
+          "Longitude": 153.025,
+          "Latitude": -27.471
+        },
+        {
+          "State": "QLD",
+          "Year": 2018,
+          "Total Students": 1253485,
+          "Longitude": 153.025,
+          "Latitude": -27.471
+        },
+        {
+          "State": "QLD",
+          "Year": 2019,
+          "Total Students": 1363021,
+          "Longitude": 153.025,
+          "Latitude": -27.471
+        },
+        {
+          "State": "QLD",
+          "Year": 2020,
+          "Total Students": 1299622,
+          "Longitude": 153.025,
+          "Latitude": -27.471
+        },
+        {
+          "State": "QLD",
+          "Year": 2021,
+          "Total Students": 1023814,
+          "Longitude": 153.025,
+          "Latitude": -27.471
+        },
+        {
+          "State": "QLD",
+          "Year": 2022,
+          "Total Students": 970406,
+          "Longitude": 153.025,
+          "Latitude": -27.471
+        },
+        {
+          "State": "SA",
+          "Year": 2002,
+          "Total Students": 108873,
+          "Longitude": 138.6,
+          "Latitude": -34.929
+        },
+        {
+          "State": "SA",
+          "Year": 2003,
+          "Total Students": 135699,
+          "Longitude": 138.6,
+          "Latitude": -34.929
+        },
+        {
+          "State": "SA",
+          "Year": 2004,
+          "Total Students": 154884,
+          "Longitude": 138.6,
+          "Latitude": -34.929
+        },
+        {
+          "State": "SA",
+          "Year": 2005,
+          "Total Students": 179518,
+          "Longitude": 138.6,
+          "Latitude": -34.929
+        },
+        {
+          "State": "SA",
+          "Year": 2006,
+          "Total Students": 203562,
+          "Longitude": 138.6,
+          "Latitude": -34.929
+        },
+        {
+          "State": "SA",
+          "Year": 2007,
+          "Total Students": 232623,
+          "Longitude": 138.6,
+          "Latitude": -34.929
+        },
+        {
+          "State": "SA",
+          "Year": 2008,
+          "Total Students": 265678,
+          "Longitude": 138.6,
+          "Latitude": -34.929
+        },
+        {
+          "State": "SA",
+          "Year": 2009,
+          "Total Students": 326030,
+          "Longitude": 138.6,
+          "Latitude": -34.929
+        },
+        {
+          "State": "SA",
+          "Year": 2010,
+          "Total Students": 346493,
+          "Longitude": 138.6,
+          "Latitude": -34.929
+        },
+        {
+          "State": "SA",
+          "Year": 2011,
+          "Total Students": 316314,
+          "Longitude": 138.6,
+          "Latitude": -34.929
+        },
+        {
+          "State": "SA",
+          "Year": 2012,
+          "Total Students": 284711,
+          "Longitude": 138.6,
+          "Latitude": -34.929
+        },
+        {
+          "State": "SA",
+          "Year": 2013,
+          "Total Students": 279305,
+          "Longitude": 138.6,
+          "Latitude": -34.929
+        },
+        {
+          "State": "SA",
+          "Year": 2014,
+          "Total Students": 297865,
+          "Longitude": 138.6,
+          "Latitude": -34.929
+        },
+        {
+          "State": "SA",
+          "Year": 2015,
+          "Total Students": 312450,
+          "Longitude": 138.6,
+          "Latitude": -34.929
+        },
+        {
+          "State": "SA",
+          "Year": 2016,
+          "Total Students": 336344,
+          "Longitude": 138.6,
+          "Latitude": -34.929
+        },
+        {
+          "State": "SA",
+          "Year": 2017,
+          "Total Students": 354065,
+          "Longitude": 138.6,
+          "Latitude": -34.929
+        },
+        {
+          "State": "SA",
+          "Year": 2018,
+          "Total Students": 377593,
+          "Longitude": 138.6,
+          "Latitude": -34.929
+        },
+        {
+          "State": "SA",
+          "Year": 2019,
+          "Total Students": 428724,
+          "Longitude": 138.6,
+          "Latitude": -34.929
+        },
+        {
+          "State": "SA",
+          "Year": 2020,
+          "Total Students": 465876,
+          "Longitude": 138.6,
+          "Latitude": -34.929
+        },
+        {
+          "State": "SA",
+          "Year": 2021,
+          "Total Students": 423154,
+          "Longitude": 138.6,
+          "Latitude": -34.929
+        },
+        {
+          "State": "SA",
+          "Year": 2022,
+          "Total Students": 413226,
+          "Longitude": 138.6,
+          "Latitude": -34.929
+        },
+        {
+          "State": "WA",
+          "Year": 2002,
+          "Total Students": 263669,
+          "Longitude": 115.857,
+          "Latitude": -31.95
+        },
+        {
+          "State": "WA",
+          "Year": 2003,
+          "Total Students": 298161,
+          "Longitude": 115.857,
+          "Latitude": -31.95
+        },
+        {
+          "State": "WA",
+          "Year": 2004,
+          "Total Students": 307151,
+          "Longitude": 115.857,
+          "Latitude": -31.95
+        },
+        {
+          "State": "WA",
+          "Year": 2005,
+          "Total Students": 313117,
+          "Longitude": 115.857,
+          "Latitude": -31.95
+        },
+        {
+          "State": "WA",
+          "Year": 2006,
+          "Total Students": 320121,
+          "Longitude": 115.857,
+          "Latitude": -31.95
+        },
+        {
+          "State": "WA",
+          "Year": 2007,
+          "Total Students": 338788,
+          "Longitude": 115.857,
+          "Latitude": -31.95
+        },
+        {
+          "State": "WA",
+          "Year": 2008,
+          "Total Students": 388668,
+          "Longitude": 115.857,
+          "Latitude": -31.95
+        },
+        {
+          "State": "WA",
+          "Year": 2009,
+          "Total Students": 476890,
+          "Longitude": 115.857,
+          "Latitude": -31.95
+        },
+        {
+          "State": "WA",
+          "Year": 2010,
+          "Total Students": 486684,
+          "Longitude": 115.857,
+          "Latitude": -31.95
+        },
+        {
+          "State": "WA",
+          "Year": 2011,
+          "Total Students": 442844,
+          "Longitude": 115.857,
+          "Latitude": -31.95
+        },
+        {
+          "State": "WA",
+          "Year": 2012,
+          "Total Students": 406112,
+          "Longitude": 115.857,
+          "Latitude": -31.95
+        },
+        {
+          "State": "WA",
+          "Year": 2013,
+          "Total Students": 400423,
+          "Longitude": 115.857,
+          "Latitude": -31.95
+        },
+        {
+          "State": "WA",
+          "Year": 2014,
+          "Total Students": 427677,
+          "Longitude": 115.857,
+          "Latitude": -31.95
+        },
+        {
+          "State": "WA",
+          "Year": 2015,
+          "Total Students": 465805,
+          "Longitude": 115.857,
+          "Latitude": -31.95
+        },
+        {
+          "State": "WA",
+          "Year": 2016,
+          "Total Students": 514593,
+          "Longitude": 115.857,
+          "Latitude": -31.95
+        },
+        {
+          "State": "WA",
+          "Year": 2017,
+          "Total Students": 517174,
+          "Longitude": 115.857,
+          "Latitude": -31.95
+        },
+        {
+          "State": "WA",
+          "Year": 2018,
+          "Total Students": 498699,
+          "Longitude": 115.857,
+          "Latitude": -31.95
+        },
+        {
+          "State": "WA",
+          "Year": 2019,
+          "Total Students": 511868,
+          "Longitude": 115.857,
+          "Latitude": -31.95
+        },
+        {
+          "State": "WA",
+          "Year": 2020,
+          "Total Students": 507154,
+          "Longitude": 115.857,
+          "Latitude": -31.95
+        },
+        {
+          "State": "WA",
+          "Year": 2021,
+          "Total Students": 423234,
+          "Longitude": 115.857,
+          "Latitude": -31.95
+        },
+        {
+          "State": "WA",
+          "Year": 2022,
+          "Total Students": 407640,
+          "Longitude": 115.857,
+          "Latitude": -31.95
+        },
+        {
+          "State": "TAS",
+          "Year": 2002,
+          "Total Students": 27122,
+          "Longitude": 147.325,
+          "Latitude": -42.882
+        },
+        {
+          "State": "TAS",
+          "Year": 2003,
+          "Total Students": 30546,
+          "Longitude": 147.325,
+          "Latitude": -42.882
+        },
+        {
+          "State": "TAS",
+          "Year": 2004,
+          "Total Students": 33737,
+          "Longitude": 147.325,
+          "Latitude": -42.882
+        },
+        {
+          "State": "TAS",
+          "Year": 2005,
+          "Total Students": 37413,
+          "Longitude": 147.325,
+          "Latitude": -42.882
+        },
+        {
+          "State": "TAS",
+          "Year": 2006,
+          "Total Students": 40880,
+          "Longitude": 147.325,
+          "Latitude": -42.882
+        },
+        {
+          "State": "TAS",
+          "Year": 2007,
+          "Total Students": 42963,
+          "Longitude": 147.325,
+          "Latitude": -42.882
+        },
+        {
+          "State": "TAS",
+          "Year": 2008,
+          "Total Students": 46213,
+          "Longitude": 147.325,
+          "Latitude": -42.882
+        },
+        {
+          "State": "TAS",
+          "Year": 2009,
+          "Total Students": 51940,
+          "Longitude": 147.325,
+          "Latitude": -42.882
+        },
+        {
+          "State": "TAS",
+          "Year": 2010,
+          "Total Students": 52783,
+          "Longitude": 147.325,
+          "Latitude": -42.882
+        },
+        {
+          "State": "TAS",
+          "Year": 2011,
+          "Total Students": 49409,
+          "Longitude": 147.325,
+          "Latitude": -42.882
+        },
+        {
+          "State": "TAS",
+          "Year": 2012,
+          "Total Students": 48753,
+          "Longitude": 147.325,
+          "Latitude": -42.882
+        },
+        {
+          "State": "TAS",
+          "Year": 2013,
+          "Total Students": 48107,
+          "Longitude": 147.325,
+          "Latitude": -42.882
+        },
+        {
+          "State": "TAS",
+          "Year": 2014,
+          "Total Students": 46044,
+          "Longitude": 147.325,
+          "Latitude": -42.882
+        },
+        {
+          "State": "TAS",
+          "Year": 2015,
+          "Total Students": 53818,
+          "Longitude": 147.325,
+          "Latitude": -42.882
+        },
+        {
+          "State": "TAS",
+          "Year": 2016,
+          "Total Students": 61965,
+          "Longitude": 147.325,
+          "Latitude": -42.882
+        },
+        {
+          "State": "TAS",
+          "Year": 2017,
+          "Total Students": 85111,
+          "Longitude": 147.325,
+          "Latitude": -42.882
+        },
+        {
+          "State": "TAS",
+          "Year": 2018,
+          "Total Students": 107717,
+          "Longitude": 147.325,
+          "Latitude": -42.882
+        },
+        {
+          "State": "TAS",
+          "Year": 2019,
+          "Total Students": 145796,
+          "Longitude": 147.325,
+          "Latitude": -42.882
+        },
+        {
+          "State": "TAS",
+          "Year": 2020,
+          "Total Students": 163599,
+          "Longitude": 147.325,
+          "Latitude": -42.882
+        },
+        {
+          "State": "TAS",
+          "Year": 2021,
+          "Total Students": 143780,
+          "Longitude": 147.325,
+          "Latitude": -42.882
+        },
+        {
+          "State": "TAS",
+          "Year": 2022,
+          "Total Students": 124643,
+          "Longitude": 147.325,
+          "Latitude": -42.882
+        },
+        {
+          "State": "NT",
+          "Year": 2002,
+          "Total Students": 5726,
+          "Longitude": 133.775,
+          "Latitude": -19.491
+        },
+        {
+          "State": "NT",
+          "Year": 2003,
+          "Total Students": 4909,
+          "Longitude": 133.775,
+          "Latitude": -19.491
+        },
+        {
+          "State": "NT",
+          "Year": 2004,
+          "Total Students": 4174,
+          "Longitude": 133.775,
+          "Latitude": -19.491
+        },
+        {
+          "State": "NT",
+          "Year": 2005,
+          "Total Students": 4008,
+          "Longitude": 133.775,
+          "Latitude": -19.491
+        },
+        {
+          "State": "NT",
+          "Year": 2006,
+          "Total Students": 4582,
+          "Longitude": 133.775,
+          "Latitude": -19.491
+        },
+        {
+          "State": "NT",
+          "Year": 2007,
+          "Total Students": 5523,
+          "Longitude": 133.775,
+          "Latitude": -19.491
+        },
+        {
+          "State": "NT",
+          "Year": 2008,
+          "Total Students": 6944,
+          "Longitude": 133.775,
+          "Latitude": -19.491
+        },
+        {
+          "State": "NT",
+          "Year": 2009,
+          "Total Students": 9439,
+          "Longitude": 133.775,
+          "Latitude": -19.491
+        },
+        {
+          "State": "NT",
+          "Year": 2010,
+          "Total Students": 12030,
+          "Longitude": 133.775,
+          "Latitude": -19.491
+        },
+        {
+          "State": "NT",
+          "Year": 2011,
+          "Total Students": 12579,
+          "Longitude": 133.775,
+          "Latitude": -19.491
+        },
+        {
+          "State": "NT",
+          "Year": 2012,
+          "Total Students": 13713,
+          "Longitude": 133.775,
+          "Latitude": -19.491
+        },
+        {
+          "State": "NT",
+          "Year": 2013,
+          "Total Students": 15417,
+          "Longitude": 133.775,
+          "Latitude": -19.491
+        },
+        {
+          "State": "NT",
+          "Year": 2014,
+          "Total Students": 17961,
+          "Longitude": 133.775,
+          "Latitude": -19.491
+        },
+        {
+          "State": "NT",
+          "Year": 2015,
+          "Total Students": 21154,
+          "Longitude": 133.775,
+          "Latitude": -19.491
+        },
+        {
+          "State": "NT",
+          "Year": 2016,
+          "Total Students": 23608,
+          "Longitude": 133.775,
+          "Latitude": -19.491
+        },
+        {
+          "State": "NT",
+          "Year": 2017,
+          "Total Students": 25896,
+          "Longitude": 133.775,
+          "Latitude": -19.491
+        },
+        {
+          "State": "NT",
+          "Year": 2018,
+          "Total Students": 27440,
+          "Longitude": 133.775,
+          "Latitude": -19.491
+        },
+        {
+          "State": "NT",
+          "Year": 2019,
+          "Total Students": 27440,
+          "Longitude": 133.775,
+          "Latitude": -19.491
+        },
+        {
+          "State": "NT",
+          "Year": 2020,
+          "Total Students": 34721,
+          "Longitude": 133.775,
+          "Latitude": -19.491
+        },
+        {
+          "State": "NT",
+          "Year": 2021,
+          "Total Students": 47911,
+          "Longitude": 133.775,
+          "Latitude": -19.491
+        },
+        {
+          "State": "NT",
+          "Year": 2022,
+          "Total Students": 46736,
+          "Longitude": 133.775,
+          "Latitude": -19.491
+        },
+        {
+          "State": "ACT",
+          "Year": 2002,
+          "Total Students": 50926,
+          "Longitude": 149.129,
+          "Latitude": -35.282
+        },
+        {
+          "State": "ACT",
+          "Year": 2003,
+          "Total Students": 61405,
+          "Longitude": 149.129,
+          "Latitude": -35.282
+        },
+        {
+          "State": "ACT",
+          "Year": 2004,
+          "Total Students": 63404,
+          "Longitude": 149.129,
+          "Latitude": -35.282
+        },
+        {
+          "State": "ACT",
+          "Year": 2005,
+          "Total Students": 65631,
+          "Longitude": 149.129,
+          "Latitude": -35.282
+        },
+        {
+          "State": "ACT",
+          "Year": 2006,
+          "Total Students": 66729,
+          "Longitude": 149.129,
+          "Latitude": -35.282
+        },
+        {
+          "State": "ACT",
+          "Year": 2007,
+          "Total Students": 70278,
+          "Longitude": 149.129,
+          "Latitude": -35.282
+        },
+        {
+          "State": "ACT",
+          "Year": 2008,
+          "Total Students": 78432,
+          "Longitude": 149.129,
+          "Latitude": -35.282
+        },
+        {
+          "State": "ACT",
+          "Year": 2009,
+          "Total Students": 95812,
+          "Longitude": 149.129,
+          "Latitude": -35.282
+        },
+        {
+          "State": "ACT",
+          "Year": 2010,
+          "Total Students": 114067,
+          "Longitude": 149.129,
+          "Latitude": -35.282
+        },
+        {
+          "State": "ACT",
+          "Year": 2011,
+          "Total Students": 115927,
+          "Longitude": 149.129,
+          "Latitude": -35.282
+        },
+        {
+          "State": "ACT",
+          "Year": 2012,
+          "Total Students": 112178,
+          "Longitude": 149.129,
+          "Latitude": -35.282
+        },
+        {
+          "State": "ACT",
+          "Year": 2013,
+          "Total Students": 109945,
+          "Longitude": 149.129,
+          "Latitude": -35.282
+        },
+        {
+          "State": "ACT",
+          "Year": 2014,
+          "Total Students": 120808,
+          "Longitude": 149.129,
+          "Latitude": -35.282
+        },
+        {
+          "State": "ACT",
+          "Year": 2015,
+          "Total Students": 126210,
+          "Longitude": 149.129,
+          "Latitude": -35.282
+        },
+        {
+          "State": "ACT",
+          "Year": 2016,
+          "Total Students": 140853,
+          "Longitude": 149.129,
+          "Latitude": -35.282
+        },
+        {
+          "State": "ACT",
+          "Year": 2017,
+          "Total Students": 164393,
+          "Longitude": 149.129,
+          "Latitude": -35.282
+        },
+        {
+          "State": "ACT",
+          "Year": 2018,
+          "Total Students": 193564,
+          "Longitude": 149.129,
+          "Latitude": -35.282
+        },
+        {
+          "State": "ACT",
+          "Year": 2019,
+          "Total Students": 192944,
+          "Longitude": 149.129,
+          "Latitude": -35.282
+        },
+        {
+          "State": "ACT",
+          "Year": 2020,
+          "Total Students": 179135,
+          "Longitude": 149.129,
+          "Latitude": -35.282
+        },
+        {
+          "State": "ACT",
+          "Year": 2021,
+          "Total Students": 176223,
+          "Longitude": 149.129,
+          "Latitude": -35.282
+        },
+        {
+          "State": "ACT",
+          "Year": 2022,
+          "Total Students": 179326,
+          "Longitude": 149.129,
+          "Latitude": -35.282
+        },
+        {"State": "NAT", "Year": 2002, "Total Students": 0},
+        {"State": "NAT", "Year": 2003, "Total Students": 0},
+        {"State": "NAT", "Year": 2004, "Total Students": 0},
+        {"State": "NAT", "Year": 2005, "Total Students": 0},
+        {"State": "NAT", "Year": 2006, "Total Students": 0},
+        {"State": "NAT", "Year": 2007, "Total Students": 0},
+        {"State": "NAT", "Year": 2008, "Total Students": 0},
+        {"State": "NAT", "Year": 2009, "Total Students": 30},
+        {"State": "NAT", "Year": 2010, "Total Students": 168},
+        {"State": "NAT", "Year": 2011, "Total Students": 560},
+        {"State": "NAT", "Year": 2012, "Total Students": 2843},
+        {"State": "NAT", "Year": 2013, "Total Students": 5396},
+        {"State": "NAT", "Year": 2014, "Total Students": 1146},
+        {"State": "NAT", "Year": 2015, "Total Students": 132},
+        {"State": "NAT", "Year": 2016, "Total Students": 12},
+        {"State": "NAT", "Year": 2017, "Total Students": 0},
+        {"State": "NAT", "Year": 2018, "Total Students": 0},
+        {"State": "NAT", "Year": 2019, "Total Students": 0},
+        {"State": "NAT", "Year": 2020, "Total Students": 0},
+        {"State": "NAT", "Year": 2021, "Total Students": 0},
+        {"State": "NAT", "Year": 2022, "Total Students": 0}
+      ]
+    },
+    {
+      "name": "data_0",
+      "source": "source_0",
+      "transform": [
+        {"type": "filter", "expr": "datum[\"Year\"]<=sliderYear"},
+        {
+          "type": "geojson",
+          "fields": ["Longitude", "Latitude"],
+          "signal": "geojson_0"
+        },
+        {
+          "type": "geopoint",
+          "projection": "projection",
+          "fields": ["Longitude", "Latitude"],
+          "as": ["x", "y"]
+        },
+        {
+          "type": "filter",
+          "expr": "isValid(datum[\"Total Students\"]) && isFinite(+datum[\"Total Students\"])"
+        }
+      ]
+    }
+  ],
+  "projections": [
+    {
+      "name": "projection",
+      "size": {"signal": "[width, height]"},
+      "fit": {"signal": "geojson_0"},
+      "type": "equalEarth"
+    }
+  ],
+  "signals": [
+    {
+      "name": "sliderYear",
+      "value": 2022,
+      "bind": {"input": "range", "min": 2002, "max": 2022, "step": 1}
+    }
+  ],
+  "marks": [
+    {
+      "name": "marks",
+      "type": "symbol",
+      "style": ["circle"],
+      "from": {"data": "data_0"},
+      "encode": {
+        "update": {
+          "opacity": {"value": 0.7},
+          "fill": {"scale": "color", "field": "Total Students"},
+          "tooltip": {
+            "signal": "{\"State\": isValid(datum[\"State\"]) ? datum[\"State\"] : \"\"+datum[\"State\"], \"Year\": isValid(datum[\"Year\"]) ? datum[\"Year\"] : \"\"+datum[\"Year\"], \"Total Students\": format(datum[\"Total Students\"], \"\")}"
+          },
+          "ariaRoleDescription": {"value": "circle"},
+          "description": {
+            "signal": "\"Longitude: \" + (format(datum[\"Longitude\"], \"\")) + \"; Latitude: \" + (format(datum[\"Latitude\"], \"\")) + \"; Total Students: \" + (format(datum[\"Total Students\"], \"\")) + \"; State: \" + (isValid(datum[\"State\"]) ? datum[\"State\"] : \"\"+datum[\"State\"]) + \"; Year: \" + (isValid(datum[\"Year\"]) ? datum[\"Year\"] : \"\"+datum[\"Year\"])"
+          },
+          "x": {"field": "x"},
+          "y": {"field": "y"},
+          "size": {"scale": "size", "field": "Total Students"},
+          "shape": {"value": "circle"}
+        }
+      }
+    }
+  ],
+  "scales": [
+    {
+      "name": "color",
+      "type": "linear",
+      "domain": {"data": "data_0", "field": "Total Students"},
+      "range": {"scheme": "viridis"},
+      "interpolate": "hcl",
+      "zero": false
+    },
+    {
+      "name": "size",
+      "type": "linear",
+      "domain": {"data": "data_0", "field": "Total Students"},
+      "range": [0, 361],
+      "zero": true
+    }
+  ],
+  "legends": [
+    {
+      "fill": "color",
+      "gradientLength": {"signal": "clamp(height, 64, 200)"},
+      "title": "Total Students",
+      "encode": {"gradient": {"update": {"opacity": {"value": 0.7}}}},
+      "symbolType": "circle",
+      "size": "size"
+    }
+  ],
+  "config": {}
+};
+    vegaEmbed("#vis", spec, {mode: "vega"}).then(console.log).catch(console.warn);
+  </script>
+</body>
+</html>

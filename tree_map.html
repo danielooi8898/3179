@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/vega@5.25.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.15.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.22.2"></script>
+</head>
+<body>
+  <div id="vis"/>
+  <script>
+    const spec = {
+  "$schema": "https://vega.github.io/schema/vega/v5.json",
+  "description": "Factors Affecting Students' Country Selection",
+  "width": 1200,
+  "height": 600,
+  "padding": 2.5,
+  "autosize": "none",
+  "data": [
+    {
+      "name": "tree",
+      "values": [
+        {
+          "id": "root",
+          "parent": "",
+          "value": 1,
+          "x0": 0,
+          "y0": 0,
+          "x1": 1200,
+          "y1": 600,
+          "depth": 0,
+          "children": 6
+        },
+        {
+          "id": "Academic",
+          "parent": "root",
+          "value": 1,
+          "x0": 0,
+          "y0": 0,
+          "x1": 331.37587964086384,
+          "y1": 285.0615114235501,
+          "depth": 1,
+          "children": 3
+        },
+        {
+          "id": "education quality",
+          "parent": "Academic",
+          "value": 0.791,
+          "score": 0.791,
+          "x0": 0,
+          "y0": 81.55503134310122,
+          "x1": 229.22548517697246,
+          "y1": 182.0379437923116,
+          "depth": 2,
+          "children": 0
+        },
+        {
+          "id": "Innovation and development",
+          "parent": "Academic",
+          "value": 0.811,
+          "score": 0.811,
+          "x0": 0,
+          "y0": 182.0379437923116,
+          "x1": 229.22548517697246,
+          "y1": 285.0615114235501,
+          "depth": 2,
+          "children": 0
+        },
+        {
+          "id": "Program diversity",
+          "parent": "Academic",
+          "value": 0.642,
+          "score": 0.642,
+          "x0": 0,
+          "y0": 0,
+          "x1": 229.22548517697246,
+          "y1": 81.55503134310122,
+          "depth": 2,
+          "children": 0
+        },
+        {
+          "id": "Social",
+          "parent": "root",
+          "value": 1,
+          "x0": 713.6132006794467,
+          "y0": 0,
+          "x1": 931.4683387923214,
+          "y1": 540.1317102374775,
+          "depth": 1,
+          "children": 4
+        },
+        {
+          "id": "Non-discrimination",
+          "parent": "Social",
+          "value": 0.856,
+          "score": 0.856,
+          "x0": 820.2010367489916,
+          "y0": 182.44983530664607,
+          "x1": 931.4683387923214,
+          "y1": 406.46882722894554,
+          "depth": 2,
+          "children": 0
+        },
+        {
+          "id": "Safety and peace",
+          "parent": "Social",
+          "value": 0.742,
+          "score": 0.742,
+          "x0": 813.0445201258357,
+          "y0": 0,
+          "x1": 931.4683387923214,
+          "y1": 182.44983530664607,
+          "depth": 2,
+          "children": 0
+        },
+        {
+          "id": "Language proficient",
+          "parent": "Social",
+          "value": 0.82,
+          "score": 0.82,
+          "x0": 713.6132006794467,
+          "y0": 182.44983530664607,
+          "x1": 820.2010367489916,
+          "y1": 406.46882722894554,
+          "depth": 2,
+          "children": 0
+        },
+        {
+          "id": "Friendly locals",
+          "parent": "Social",
+          "value": 0.623,
+          "score": 0.623,
+          "x0": 713.6132006794467,
+          "y0": 0,
+          "x1": 813.0445201258357,
+          "y1": 182.44983530664607,
+          "depth": 2,
+          "children": 0
+        },
+        {
+          "id": "Financial",
+          "parent": "root",
+          "value": 1,
+          "x0": 331.37587964086384,
+          "y0": 0,
+          "x1": 713.6132006794467,
+          "y1": 298.0192991366176,
+          "depth": 1,
+          "children": 4
+        },
+        {
+          "id": "Cost of living",
+          "parent": "Financial",
+          "value": 0.793,
+          "score": 0.793,
+          "x0": 331.37587964086384,
+          "y0": 184.23532984661384,
+          "x1": 534.3173202843036,
+          "y1": 298.0192991366176,
+          "depth": 2,
+          "children": 0
+        },
+        {
+          "id": "Student job opportunities",
+          "parent": "Financial",
+          "value": 0.835,
+          "score": 0.835,
+          "x0": 534.3173202843036,
+          "y0": 0,
+          "x1": 713.6132006794467,
+          "y1": 135.6109617324663,
+          "depth": 2,
+          "children": 0
+        },
+        {
+          "id": "Tuition fees",
+          "parent": "Financial",
+          "value": 0.692,
+          "score": 0.692,
+          "x0": 331.37587964086384,
+          "y0": 84.94339195420201,
+          "x1": 534.3173202843036,
+          "y1": 184.23532984661384,
+          "depth": 2,
+          "children": 0
+        },
+        {
+          "id": "Scholarships",
+          "parent": "Financial",
+          "value": 0.592,
+          "score": 0.592,
+          "x0": 331.37587964086384,
+          "y0": 0,
+          "x1": 534.3173202843036,
+          "y1": 84.94339195420201,
+          "depth": 2,
+          "children": 0
+        },
+        {
+          "id": "Career",
+          "parent": "root",
+          "value": 1,
+          "x0": 931.4683387923214,
+          "y0": 0,
+          "x1": 1200,
+          "y1": 540.1317102374775,
+          "depth": 1,
+          "children": 5
+        },
+        {
+          "id": "job opportunities",
+          "parent": "Career",
+          "value": 0.832,
+          "score": 0.832,
+          "x0": 1065.329510473304,
+          "y0": 154.95848502898122,
+          "x1": 1200,
+          "y1": 334.8578038974765,
+          "depth": 2,
+          "children": 0
+        },
+        {
+          "id": "Salaries",
+          "parent": "Career",
+          "value": 0.893,
+          "score": 0.893,
+          "x0": 931.4683387923214,
+          "y0": 334.8578038974765,
+          "x1": 1058.1449227640367,
+          "y1": 540.1317102374775,
+          "depth": 2,
+          "children": 0
+        },
+        {
+          "id": "Career prospects",
+          "parent": "Career",
+          "value": 0.827,
+          "score": 0.827,
+          "x0": 931.4683387923214,
+          "y0": 154.95848502898122,
+          "x1": 1065.329510473304,
+          "y1": 334.8578038974765,
+          "depth": 2,
+          "children": 0
+        },
+        {
+          "id": "Job-search visa",
+          "parent": "Career",
+          "value": 0.636,
+          "score": 0.636,
+          "x0": 931.4683387923214,
+          "y0": 0,
+          "x1": 1050.9827800296086,
+          "y1": 154.95848502898122,
+          "depth": 2,
+          "children": 0
+        },
+        {
+          "id": "nationality after study",
+          "parent": "Career",
+          "value": 0.793,
+          "score": 0.793,
+          "x0": 1050.9827800296086,
+          "y0": 0,
+          "x1": 1200,
+          "y1": 154.95848502898122,
+          "depth": 2,
+          "children": 0
+        },
+        {
+          "id": "Personal",
+          "parent": "root",
+          "value": 1,
+          "x0": 331.37587964086384,
+          "y0": 298.0192991366176,
+          "x1": 713.6132006794467,
+          "y1": 600,
+          "depth": 1,
+          "children": 4
+        },
+        {
+          "id": "Friends in the country",
+          "parent": "Personal",
+          "value": 0.889,
+          "score": 0.889,
+          "x0": 531.4622674196377,
+          "y0": 298.0192991366176,
+          "x1": 713.6132006794467,
+          "y1": 440.13726793891885,
+          "depth": 2,
+          "children": 0
+        },
+        {
+          "id": "Teaching recommendation",
+          "parent": "Personal",
+          "value": 0.677,
+          "score": 0.677,
+          "x0": 331.37587964086384,
+          "y0": 388.68627582957527,
+          "x1": 531.4622674196377,
+          "y1": 487.2120273883752,
+          "depth": 2,
+          "children": 0
+        },
+        {
+          "id": "Parental recommendation",
+          "parent": "Personal",
+          "value": 0.623,
+          "score": 0.623,
+          "x0": 331.37587964086384,
+          "y0": 298.0192991366176,
+          "x1": 531.4622674196377,
+          "y1": 388.68627582957527,
+          "depth": 2,
+          "children": 0
+        },
+        {
+          "id": "Personal desire to study",
+          "parent": "Personal",
+          "value": 0.775,
+          "score": 0.775,
+          "x0": 331.37587964086384,
+          "y0": 487.2120273883752,
+          "x1": 531.4622674196377,
+          "y1": 600,
+          "depth": 2,
+          "children": 0
+        },
+        {
+          "id": "Marketing",
+          "parent": "root",
+          "value": 1,
+          "x0": 0,
+          "y0": 285.0615114235501,
+          "x1": 331.37587964086384,
+          "y1": 600,
+          "depth": 1,
+          "children": 3
+        },
+        {
+          "id": "Student-friendly visa policy",
+          "parent": "Marketing",
+          "value": 0.901,
+          "score": 0.901,
+          "x0": 0,
+          "y0": 490.1859217463695,
+          "x1": 238.91609179464066,
+          "y1": 600.0000000000001,
+          "depth": 2,
+          "children": 0
+        },
+        {
+          "id": "Consultant recommendation",
+          "parent": "Marketing",
+          "value": 0.829,
+          "score": 0.829,
+          "x0": 0,
+          "y0": 285.0615114235501,
+          "x1": 238.91609179464066,
+          "y1": 386.1002138344932,
+          "depth": 2,
+          "children": 0
+        },
+        {
+          "id": "Awareness events by institutions",
+          "parent": "Marketing",
+          "value": 0.854,
+          "score": 0.854,
+          "x0": 0,
+          "y0": 386.1002138344932,
+          "x1": 238.91609179464066,
+          "y1": 490.1859217463695,
+          "depth": 2,
+          "children": 0
+        }
+      ],
+      "transform": [
+        {"type": "stratify", "key": "id", "parentKey": "parent"},
+        {
+          "type": "treemap",
+          "field": "value",
+          "sort": {"field": "value"},
+          "size": [{"signal": "width"}, {"signal": "height"}]
+        }
+      ]
+    },
+    {
+      "name": "nodes",
+      "source": "tree",
+      "transform": [{"type": "filter", "expr": "datum.children"}]
+    },
+    {
+      "name": "leaves",
+      "source": "tree",
+      "transform": [{"type": "filter", "expr": "!datum.children"}]
+    }
+  ],
+  "scales": [
+    {
+      "name": "color",
+      "type": "ordinal",
+      "domain": {"data": "nodes", "field": "id"},
+      "range": [
+        "#3182bd",
+        "#6baed6",
+        "#9ecae1",
+        "#c6dbef",
+        "#e6550d",
+        "#fd8d3c",
+        "#fdae6b",
+        "#fdd0a2",
+        "#31a354",
+        "#74c476",
+        "#a1d99b",
+        "#c7e9c0",
+        "#756bb1",
+        "#9e9ac8",
+        "#bcbddc",
+        "#dadaeb",
+        "#636363",
+        "#969696",
+        "#bdbdbd",
+        "#d9d9d9"
+      ]
+    },
+    {
+      "name": "size",
+      "type": "ordinal",
+      "domain": [0, 1, 2, 3],
+      "range": [256, 28, 20, 14]
+    },
+    {
+      "name": "opacity",
+      "type": "ordinal",
+      "domain": [0, 1, 2, 3],
+      "range": [0.15, 0.5, 0.8, 1]
+    }
+  ],
+  "marks": [
+    {
+      "type": "rect",
+      "from": {"data": "nodes"},
+      "interactive": false,
+      "encode": {
+        "enter": {"fill": {"scale": "color", "field": "id"}},
+        "update": {
+          "x": {"field": "x0"},
+          "y": {"field": "y0"},
+          "x2": {"field": "x1"},
+          "y2": {"field": "y1"}
+        }
+      }
+    },
+    {
+      "type": "rect",
+      "from": {"data": "leaves"},
+      "encode": {
+        "enter": {"stroke": {"value": "#fff"}},
+        "update": {
+          "x": {"field": "x0"},
+          "y": {"field": "y0"},
+          "x2": {"field": "x1"},
+          "y2": {"field": "y1"},
+          "fill": {"value": "transparent"}
+        },
+        "hover": {"fill": {"value": "red"}}
+      }
+    },
+    {
+      "type": "text",
+      "from": {"data": "nodes"},
+      "interactive": false,
+      "encode": {
+        "enter": {
+          "font": {"value": "Helvetica Neue, Arial"},
+          "align": {"value": "center"},
+          "baseline": {"value": "middle"},
+          "fill": {"value": "#000"},
+          "text": {"field": "id"},
+          "fontSize": {"scale": "size", "field": "depth"},
+          "fillOpacity": {"scale": "opacity", "field": "depth"}
+        },
+        "update": {
+          "x": {"signal": "0.5 * (datum.x0 + datum.x1)"},
+          "y": {"signal": "0.5 * (datum.y0 + datum.y1)"}
+        }
+      }
+    },
+    {
+      "type": "text",
+      "from": {"data": "leaves"},
+      "encode": {
+        "enter": {
+          "font": {"value": "Helvetica Neue, Arial"},
+          "align": {"value": "center"},
+          "baseline": {"value": "middle"},
+          "fill": {"value": "#000"},
+          "text": {"field": "id"},
+          "fontSize": {"value": 12},
+          "fillOpacity": {"value": 1}
+        },
+        "update": {
+          "x": {"signal": "0.5 * (datum.x0 + datum.x1)"},
+          "y": {"signal": "0.5 * (datum.y0 + datum.y1)"}
+        }
+      }
+    },
+    {
+      "type": "rect",
+      "from": {"data": "leaves"},
+      "encode": {
+        "enter": {"fill": {"value": "transparent"}},
+        "update": {"fill": {"value": "transparent"}},
+        "hover": {"fill": {"value": "transparent"}}
+      }
+    },
+    {
+      "type": "text",
+      "from": {"data": "leaves"},
+      "encode": {
+        "enter": {
+          "text": {"signal": "datum.score"},
+          "fill": {"value": "black"},
+          "baseline": {"value": "middle"},
+          "align": {"value": "center"},
+          "fontSize": {"value": 12},
+          "fillOpacity": {"value": 1},
+          "tooltip": {"signal": "{'Loading Score': format(datum.score, '.3f')}"}
+        },
+        "update": {
+          "x": {"signal": "0.5 * (datum.x0 + datum.x1)"},
+          "y": {"signal": "0.5 * (datum.y0 + datum.y1)"},
+          "fillOpacity": {"value": 0},
+          "tooltip": {"signal": "{'Loading Score': format(datum.score, '.3f')}"}
+        },
+        "hover": {"fillOpacity": {"value": 1}}
+      }
+    }
+  ],
+  "config": {}
+};
+    vegaEmbed("#vis", spec, {mode: "vega"}).then(console.log).catch(console.warn);
+  </script>
+</body>
+</html>

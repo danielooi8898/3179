@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/vega@5.25.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.15.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.22.2"></script>
+</head>
+<body>
+  <div id="vis"/>
+  <script>
+    const spec = {
+  "$schema": "https://vega.github.io/schema/vega/v5.json",
+  "background": "white",
+  "padding": 5,
+  "width": 800,
+  "height": 400,
+  "title": {
+    "text": "Number of International Students (2022)",
+    "frame": "group"
+  },
+  "style": "cell",
+  "signals": [
+    {
+      "name": "year",
+      "value": 2022,
+      "bind": {"input": "range", "min": 2013, "max": 2022, "step": 1}
+    }
+  ],
+  "data": [
+    {
+      "name": "source_1",
+      "values": [
+        {
+          "year": 2013,
+            "value": 819644,
+            "Country of citizenship": "United States of America"
+          },
+          {
+            "year": 2014,
+            "value": 886052,
+            "Country of citizenship": "United States of America"
+          },
+          {
+            "year": 2015,
+            "value": 974926,
+            "Country of citizenship": "United States of America"
+          },
+          {
+            "year": 2016,
+            "value": 1043839,
+            "Country of citizenship": "United States of America"
+          },
+          {
+            "year": 2017,
+            "value": 1078822,
+            "Country of citizenship": "United States of America"
+          },
+          {
+            "year": 2018,
+            "value": 1094792,
+            "Country of citizenship": "United States of America"
+          },
+          {
+            "year": 2019,
+            "value": 1095299,
+            "Country of citizenship": "United States of America"
+          },
+          {
+            "year": 2020,
+            "value": 1075496,
+            "Country of citizenship": "United States of America"
+          },
+          {
+            "year": 2021,
+            "value": 914095,
+            "Country of citizenship": "United States of America"
+          },
+          {
+            "year": 2022,
+            "value": 948519,
+            "Country of citizenship": "United States of America"
+          },
+          {
+            "year": 2013,
+            "value": 488380,
+            "Country of citizenship": "United Kingdom"
+          },
+          {
+            "year": 2014,
+            "value": 481050,
+            "Country of citizenship": "United Kingdom"
+          },
+          {
+            "year": 2015,
+            "value": 493570,
+            "Country of citizenship": "United Kingdom"
+          },
+          {
+            "year": 2016,
+            "value": 496690,
+            "Country of citizenship": "United Kingdom"
+          },
+          {
+            "year": 2017,
+            "value": 501045,
+            "Country of citizenship": "United Kingdom"
+          },
+          {
+            "year": 2018,
+            "value": 506480,
+            "Country of citizenship": "United Kingdom"
+          },
+          {
+            "year": 2019,
+            "value": 496570,
+            "Country of citizenship": "United Kingdom"
+          },
+          {
+            "year": 2020,
+            "value": 551495,
+            "Country of citizenship": "United Kingdom"
+          },
+          {
+            "year": 2021,
+            "value": 601205,
+            "Country of citizenship": "United Kingdom"
+          },
+          {
+            "year": 2022,
+            "value": 633910,
+            "Country of citizenship": "United Kingdom"
+          },
+          {"year": 2013, "value": 245531, "Country of citizenship": "Australia"},
+          {"year": 2014, "value": 247093, "Country of citizenship": "Australia"},
+          {"year": 2015, "value": 269752, "Country of citizenship": "Australia"},
+          {"year": 2016, "value": 292352, "Country of citizenship": "Australia"},
+          {"year": 2017, "value": 327606, "Country of citizenship": "Australia"},
+          {"year": 2018, "value": 371885, "Country of citizenship": "Australia"},
+          {"year": 2019, "value": 420501, "Country of citizenship": "Australia"},
+          {"year": 2020, "value": 463643, "Country of citizenship": "Australia"},
+          {"year": 2021, "value": 429382, "Country of citizenship": "Australia"},
+          {"year": 2022, "value": 363859, "Country of citizenship": "Australia"},
+          {"year": 2013, "value": 0, "Country of citizenship": "Canada"},
+          {"year": 2014, "value": 237635, "Country of citizenship": "Canada"},
+          {"year": 2015, "value": 268659, "Country of citizenship": "Canada"},
+          {"year": 2016, "value": 263855, "Country of citizenship": "Canada"},
+          {"year": 2017, "value": 309530, "Country of citizenship": "Canada"},
+          {"year": 2018, "value": 370710, "Country of citizenship": "Canada"},
+          {"year": 2019, "value": 435415, "Country of citizenship": "Canada"},
+          {"year": 2020, "value": 503270, "Country of citizenship": "Canada"},
+          {"year": 2021, "value": 256455, "Country of citizenship": "Canada"},
+          {"year": 2022, "value": 552580, "Country of citizenship": "Canada"},
+          {"year": 2013, "value": 289274, "Country of citizenship": "France"},
+          {"year": 2014, "value": 295092, "Country of citizenship": "France"},
+          {"year": 2015, "value": 298902, "Country of citizenship": "France"},
+          {"year": 2016, "value": 309642, "Country of citizenship": "France"},
+          {"year": 2017, "value": 323933, "Country of citizenship": "France"},
+          {"year": 2018, "value": 343386, "Country of citizenship": "France"},
+          {"year": 2019, "value": 343400, "Country of citizenship": "France"},
+          {"year": 2020, "value": 358000, "Country of citizenship": "France"},
+          {"year": 2021, "value": 370052, "Country of citizenship": "France"},
+          {"year": 2022, "value": 364756, "Country of citizenship": "France"},
+           {"year": 2013, "value": 328330, "Country of citizenship": "China"},
+           {"year": 2014, "value": 356499, "Country of citizenship": "China"},
+           {"year": 2015, "value": 377054, "Country of citizenship": "China"},
+           {"year": 2016, "value": 397635, "Country of citizenship": "China"},
+           {"year": 2017, "value": 442773, "Country of citizenship": "China"},
+           {"year": 2018, "value": 489200, "Country of citizenship": "China"},
+           {"year": 2019, "value": 492185, "Country of citizenship": "China"},
+           {"year": 2020, "value": 492185, "Country of citizenship": "China"},
+           {"year": 2021, "value": 0, "Country of citizenship": "China"},
+           {"year": 2022, "value": 292611, "Country of citizenship": "China"},
+          {"year": 2013, "value": 137756, "Country of citizenship": "Japan"},
+          {"year": 2014, "value": 135519, "Country of citizenship": "Japan"},
+          {"year": 2015, "value": 139185, "Country of citizenship": "Japan"},
+          {"year": 2016, "value": 152062, "Country of citizenship": "Japan"},
+          {"year": 2017, "value": 171122, "Country of citizenship": "Japan"},
+          {"year": 2018, "value": 188384, "Country of citizenship": "Japan"},
+          {"year": 2019, "value": 208901, "Country of citizenship": "Japan"},
+          {"year": 2020, "value": 228403, "Country of citizenship": "Japan"},
+          {"year": 2021, "value": 218783, "Country of citizenship": "Japan"},
+          {"year": 2022, "value": 201877, "Country of citizenship": "Japan"},
+          {"year": 2013, "value": 41730, "Country of citizenship": "New Zealand"},
+          {"year": 2014, "value": 41609, "Country of citizenship": "New Zealand"},
+          {"year": 2015, "value": 46659, "Country of citizenship": "New Zealand"},
+          {"year": 2016, "value": 50525, "Country of citizenship": "New Zealand"},
+          {"year": 2017, "value": 62570, "Country of citizenship": "New Zealand"},
+          {"year": 2018, "value": 61405, "Country of citizenship": "New Zealand"},
+          {"year": 2019, "value": 61240, "Country of citizenship": "New Zealand"},
+          {"year": 2020, "value": 52995, "Country of citizenship": "New Zealand"},
+          {"year": 2021, "value": 48115, "Country of citizenship": "New Zealand"},
+          {"year": 2022, "value": 29790, "Country of citizenship": "New Zealand"},
+          {"year": 2013, "value": 265292, "Country of citizenship": "Germany"},
+          {"year": 2014, "value": 282201, "Country of citizenship": "Germany"},
+          {"year": 2015, "value": 301350, "Country of citizenship": "Germany"},
+          {"year": 2016, "value": 235858, "Country of citizenship": "Germany"},
+          {"year": 2017, "value": 251542, "Country of citizenship": "Germany"},
+          {"year": 2018, "value": 265484, "Country of citizenship": "Germany"},
+          {"year": 2019, "value": 282002, "Country of citizenship": "Germany"},
+          {"year": 2020, "value": 302157, "Country of citizenship": "Germany"},
+          {"year": 2021, "value": 319902, "Country of citizenship": "Germany"},
+          {"year": 2022, "value": 324729, "Country of citizenship": "Germany"}
+  
+      ],
+      "transform": [{"type": "filter", "expr": "datum.year === year"}]
+    },
+    {
+      "name": "source_0",
+      "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/3_choropleth_map/js/ne_110m_admin_0_countries.topojson",
+      "format": {
+        "type": "topojson",
+        "feature": "ne_110m_admin_0_countries",
+        "parse": {}
+      },
+      "transform": [
+        {
+          "type": "formula",
+          "expr": "datum[\"properties\"] && datum[\"properties\"][\"NAME\"]",
+          "as": "properties.NAME"
+        },
+        {
+          "type": "lookup",
+          "from": "source_1",
+          "key": "Country of citizenship",
+          "fields": ["properties.NAME"],
+          "values": ["value"]
+        },
+        {
+          "type": "formula",
+          "expr": "toNumber(replace(datum[\"value\"], ',', ''))",
+          "as": "students"
+        },
+        {
+          "type": "formula",
+          "expr": "datum.students === 0 ? 0.1 : datum.students",
+          "as": "students"
+        }
+      ]
+    },
+    {
+      "name": "data_0",
+      "source": "source_0",
+      "transform": [
+        {
+          "type": "filter",
+          "expr": "isValid(datum[\"students\"]) && isFinite(+datum[\"students\"])"
+        }
+      ]
+    }
+  ],
+  "projections": [
+    {
+      "name": "projection",
+      "size": {"signal": "[width, height]"},
+      "fit": {"signal": "[data('source_0'), data('data_0')]"},
+      "type": "equalEarth"
+    }
+  ],
+  "marks": [
+    {
+      "name": "layer_0_marks",
+      "type": "shape",
+      "style": ["geoshape"],
+      "from": {"data": "source_0"},
+      "encode": {
+        "update": {
+          "fill": {"value": "lightgray"},
+          "stroke": {"value": "white"},
+          "tooltip": {
+            "signal": "isValid(datum[\"properties.NAME\"]) ? \"Country: \" + datum[\"properties.NAME\"] + '\\nYear: ' + year + '\\nValue: ' + format(datum[\"students\"], \"\") : \"\"+datum[\"properties.NAME\"]"
+          },
+          "ariaRoleDescription": {"value": "geoshape"},
+          "description": {
+            "signal": "\"Country: \" + (isValid(datum[\"properties.NAME\"]) ? datum[\"properties.NAME\"] : \"\"+datum[\"properties.NAME\"])"
+          }
+        }
+      },
+      "transform": [{"type": "geoshape", "projection": "projection"}]
+    },
+    {
+      "name": "layer_1_marks",
+      "type": "shape",
+      "style": ["geoshape"],
+      "from": {"data": "data_0"},
+      "encode": {
+        "update": {
+          "fill": {"scale": "color", "field": "students"},
+          "tooltip": {
+            "signal": "{\"Country\": isValid(datum[\"properties.NAME\"]) ? datum[\"properties.NAME\"] : \"\"+datum[\"properties.NAME\"], \"Year\": year, \"Value\": format(datum[\"students\"], \"\")}"
+          },
+          "ariaRoleDescription": {"value": "geoshape"},
+          "description": {
+            "signal": "\"Number of Students: \" + (format(datum[\"students\"], \"\")) + \"; Country: \" + (isValid(datum[\"properties.NAME\"]) ? datum[\"properties.NAME\"] : \"\"+datum[\"properties.NAME\"]) + \"; students: \" + (format(datum[\"students\"], \"\"))"
+          }
+        }
+      },
+      "transform": [{"type": "geoshape", "projection": "projection"}]
+    }
+  ],
+  "scales": [
+    {
+      "name": "color",
+      "type": "linear",
+      "domain": {"data": "data_0", "field": "students"},
+      "range": "heatmap",
+      "interpolate": "hcl",
+      "zero": false
+    }
+  ],
+  "legends": [
+    {
+      "title": "Number of Students",
+      "fill": "color",
+      "gradientLength": {"signal": "clamp(height, 64, 200)"}
+    }
+  ],
+  "config": {}
+};
+    vegaEmbed("#vis", spec, {mode: "vega"}).then(console.log).catch(console.warn);
+  </script>
+</body>
+</html>
