@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/vega@5.25.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.15.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.22.2"></script>
+</head>
+<body>
+  <div id="vis"/>
+  <script>
+    const spec = {
+  "$schema": "https://vega.github.io/schema/vega/v5.json",
+  "description": "Factors Affecting Students' Country Selection",
+  "width": 960,
+  "height": 500,
+  "padding": 2.5,
+  "autosize": "none",
+  "signals": [
+    {
+      "name": "layout",
+      "value": "squarify",
+      "bind": {
+        "input": "select",
+        "options": ["squarify", "binary", "slicedice"]
+      }
+    },
+    {
+      "name": "aspectRatio",
+      "value": 1.6,
+      "bind": {"input": "range", "min": 1, "max": 5, "step": 0.1}
+    }
+  ],
+  "data": [
+    {
+      "name": "tree",
+      "values": [
+        {
+          "id": "root",
+          "parent": "",
+          "value": 1,
+          "x0": 0,
+          "y0": 0,
+          "x1": 960,
+          "y1": 500,
+          "depth": 0,
+          "children": 6
+        },
+        {
+          "id": "Academic",
+          "parent": "root",
+          "value": 1,
+          "x0": 0,
+          "y0": 0,
+          "x1": 265.10070371269103,
+          "y1": 237.55125951962512,
+          "depth": 1,
+          "children": 3
+        },
+        {
+          "id": "Reputation for education quality",
+          "parent": "Academic",
+          "value": 0.791,
+          "score": 0.791,
+          "x0": 0,
+          "y0": 67.96252611925104,
+          "x1": 183.38038814157792,
+          "y1": 151.69828649359306,
+          "depth": 2,
+          "children": 0
+        },
+        {
+          "id": "Innovation and development",
+          "parent": "Academic",
+          "value": 0.811,
+          "score": 0.811,
+          "x0": 0,
+          "y0": 151.69828649359306,
+          "x1": 183.38038814157792,
+          "y1": 237.55125951962515,
+          "depth": 2,
+          "children": 0
+        },
+        {
+          "id": "Program diversity",
+          "parent": "Academic",
+          "value": 0.642,
+          "score": 0.642,
+          "x0": 0,
+          "y0": 0,
+          "x1": 183.38038814157792,
+          "y1": 67.96252611925104,
+          "depth": 2,
+          "children": 0
+        },
+        {
+          "id": "Social",
+          "parent": "root",
+          "value": 1,
+          "x0": 570.8905605435573,
+          "y0": 0,
+          "x1": 745.1746710338571,
+          "y1": 450.1097585312313,
+          "depth": 1,
+          "children": 4
+        },
+        {
+          "id": "Non-discrimination",
+          "parent": "Social",
+          "value": 0.856,
+          "score": 0.856,
+          "x0": 656.1608293991932,
+          "y0": 152.0415294222051,
+          "x1": 745.1746710338571,
+          "y1": 338.72402269078805,
+          "depth": 2,
+          "children": 0
+        },
+        {
+          "id": "Safety and peace",
+          "parent": "Social",
+          "value": 0.742,
+          "score": 0.742,
+          "x0": 650.4356161006684,
+          "y0": 0,
+          "x1": 745.1746710338571,
+          "y1": 152.0415294222051,
+          "depth": 2,
+          "children": 0
+        },
+        {
+          "id": "Language proficiency",
+          "parent": "Social",
+          "value": 0.82,
+          "score": 0.82,
+          "x0": 570.8905605435573,
+          "y0": 152.0415294222051,
+          "x1": 656.1608293991932,
+          "y1": 338.72402269078805,
+          "depth": 2,
+          "children": 0
+        },
+        {
+          "id": "Friendliness of locals",
+          "parent": "Social",
+          "value": 0.623,
+          "score": 0.623,
+          "x0": 570.8905605435573,
+          "y0": 0,
+          "x1": 650.4356161006684,
+          "y1": 152.0415294222051,
+          "depth": 2,
+          "children": 0
+        },
+        {
+          "id": "Financial",
+          "parent": "root",
+          "value": 1,
+          "x0": 265.10070371269103,
+          "y0": 0,
+          "x1": 570.8905605435573,
+          "y1": 248.3494159471813,
+          "depth": 1,
+          "children": 4
+        },
+        {
+          "id": "Cost of living",
+          "parent": "Financial",
+          "value": 0.793,
+          "score": 0.793,
+          "x0": 265.10070371269103,
+          "y0": 153.52944153884488,
+          "x1": 427.4538562274429,
+          "y1": 248.34941594718134,
+          "depth": 2,
+          "children": 0
+        },
+        {
+          "id": "Student job opportunities",
+          "parent": "Financial",
+          "value": 0.835,
+          "score": 0.835,
+          "x0": 427.4538562274429,
+          "y0": 0,
+          "x1": 570.8905605435573,
+          "y1": 113.00913477705525,
+          "depth": 2,
+          "children": 0
+        },
+        {
+          "id": "Tuition fees",
+          "parent": "Financial",
+          "value": 0.692,
+          "score": 0.692,
+          "x0": 265.10070371269103,
+          "y0": 70.78615996183501,
+          "x1": 427.4538562274429,
+          "y1": 153.52944153884488,
+          "depth": 2,
+          "children": 0
+        },
+        {
+          "id": "Scholarships",
+          "parent": "Financial",
+          "value": 0.592,
+          "score": 0.592,
+          "x0": 265.10070371269103,
+          "y0": 0,
+          "x1": 427.4538562274429,
+          "y1": 70.78615996183501,
+          "depth": 2,
+          "children": 0
+        },
+        {
+          "id": "Career",
+          "parent": "root",
+          "value": 1,
+          "x0": 745.1746710338571,
+          "y0": 0,
+          "x1": 960,
+          "y1": 450.1097585312313,
+          "depth": 1,
+          "children": 5
+        },
+        {
+          "id": "Employment opportunities",
+          "parent": "Career",
+          "value": 0.832,
+          "score": 0.832,
+          "x0": 852.2636083786432,
+          "y0": 129.1320708574844,
+          "x1": 960,
+          "y1": 279.0481699145638,
+          "depth": 2,
+          "children": 0
+        },
+        {
+          "id": "Salaries",
+          "parent": "Career",
+          "value": 0.893,
+          "score": 0.893,
+          "x0": 745.1746710338571,
+          "y0": 279.0481699145638,
+          "x1": 846.5159382112292,
+          "y1": 450.1097585312313,
+          "depth": 2,
+          "children": 0
+        },
+        {
+          "id": "Career prospects",
+          "parent": "Career",
+          "value": 0.827,
+          "score": 0.827,
+          "x0": 745.1746710338571,
+          "y0": 129.1320708574844,
+          "x1": 852.2636083786432,
+          "y1": 279.0481699145638,
+          "depth": 2,
+          "children": 0
+        },
+        {
+          "id": "Job-search visa",
+          "parent": "Career",
+          "value": 0.636,
+          "score": 0.636,
+          "x0": 745.1746710338571,
+          "y0": 0,
+          "x1": 840.7862240236869,
+          "y1": 129.1320708574844,
+          "depth": 2,
+          "children": 0
+        },
+        {
+          "id": "Residence/nationality after study",
+          "parent": "Career",
+          "value": 0.793,
+          "score": 0.793,
+          "x0": 840.7862240236869,
+          "y0": 0,
+          "x1": 960,
+          "y1": 129.1320708574844,
+          "depth": 2,
+          "children": 0
+        },
+        {
+          "id": "Personal",
+          "parent": "root",
+          "value": 1,
+          "x0": 265.10070371269103,
+          "y0": 248.3494159471813,
+          "x1": 570.8905605435573,
+          "y1": 500,
+          "depth": 1,
+          "children": 4
+        },
+        {
+          "id": "Friends in the country",
+          "parent": "Personal",
+          "value": 0.889,
+          "score": 0.889,
+          "x0": 425.16981393571007,
+          "y0": 248.3494159471813,
+          "x1": 570.8905605435573,
+          "y1": 366.7810566157657,
+          "depth": 2,
+          "children": 0
+        },
+        {
+          "id": "Teaching recommendation",
+          "parent": "Personal",
+          "value": 0.677,
+          "score": 0.677,
+          "x0": 265.10070371269103,
+          "y0": 323.9052298579794,
+          "x1": 425.16981393571007,
+          "y1": 406.010022823646,
+          "depth": 2,
+          "children": 0
+        },
+        {
+          "id": "Parental recommendation",
+          "parent": "Personal",
+          "value": 0.623,
+          "score": 0.623,
+          "x0": 265.10070371269103,
+          "y0": 248.3494159471813,
+          "x1": 425.16981393571007,
+          "y1": 323.9052298579794,
+          "depth": 2,
+          "children": 0
+        },
+        {
+          "id": "Personal desire to study",
+          "parent": "Personal",
+          "value": 0.775,
+          "score": 0.775,
+          "x0": 265.10070371269103,
+          "y0": 406.010022823646,
+          "x1": 425.16981393571007,
+          "y1": 500,
+          "depth": 2,
+          "children": 0
+        },
+        {
+          "id": "Marketing",
+          "parent": "root",
+          "value": 1,
+          "x0": 0,
+          "y0": 237.55125951962512,
+          "x1": 265.10070371269103,
+          "y1": 500.0000000000001,
+          "depth": 1,
+          "children": 3
+        },
+        {
+          "id": "Student-friendly visa policy",
+          "parent": "Marketing",
+          "value": 0.901,
+          "score": 0.901,
+          "x0": 0,
+          "y0": 408.48826812197467,
+          "x1": 191.1328734357125,
+          "y1": 500.0000000000002,
+          "depth": 2,
+          "children": 0
+        },
+        {
+          "id": "Consultant recommendation",
+          "parent": "Marketing",
+          "value": 0.829,
+          "score": 0.829,
+          "x0": 0,
+          "y0": 237.55125951962512,
+          "x1": 191.1328734357125,
+          "y1": 321.7501781954111,
+          "depth": 2,
+          "children": 0
+        },
+        {
+          "id": "Awareness events by institutions",
+          "parent": "Marketing",
+          "value": 0.854,
+          "score": 0.854,
+          "x0": 0,
+          "y0": 321.7501781954111,
+          "x1": 191.1328734357125,
+          "y1": 408.48826812197467,
+          "depth": 2,
+          "children": 0
+        }
+      ],
+      "transform": [
+        {"type": "stratify", "key": "id", "parentKey": "parent"},
+        {
+          "type": "treemap",
+          "field": "value",
+          "sort": {"field": "value"},
+          "method": {"signal": "layout"},
+          "ratio": {"signal": "aspectRatio"},
+          "size": [{"signal": "width"}, {"signal": "height"}]
+        }
+      ]
+    },
+    {
+      "name": "nodes",
+      "source": "tree",
+      "transform": [{"type": "filter", "expr": "datum.children"}]
+    },
+    {
+      "name": "leaves",
+      "source": "tree",
+      "transform": [{"type": "filter", "expr": "!datum.children"}]
+    }
+  ],
+  "scales": [
+    {
+      "name": "color",
+      "type": "ordinal",
+      "domain": {"data": "nodes", "field": "id"},
+      "range": [
+        "#3182bd",
+        "#6baed6",
+        "#9ecae1",
+        "#c6dbef",
+        "#e6550d",
+        "#fd8d3c",
+        "#fdae6b",
+        "#fdd0a2",
+        "#31a354",
+        "#74c476",
+        "#a1d99b",
+        "#c7e9c0",
+        "#756bb1",
+        "#9e9ac8",
+        "#bcbddc",
+        "#dadaeb",
+        "#636363",
+        "#969696",
+        "#bdbdbd",
+        "#d9d9d9"
+      ]
+    },
+    {
+      "name": "size",
+      "type": "ordinal",
+      "domain": [0, 1, 2, 3],
+      "range": [256, 28, 20, 14]
+    },
+    {
+      "name": "opacity",
+      "type": "ordinal",
+      "domain": [0, 1, 2, 3],
+      "range": [0.15, 0.5, 0.8, 1]
+    }
+  ],
+  "marks": [
+    {
+      "type": "rect",
+      "from": {"data": "nodes"},
+      "interactive": false,
+      "encode": {
+        "enter": {"fill": {"scale": "color", "field": "id"}},
+        "update": {
+          "x": {"field": "x0"},
+          "y": {"field": "y0"},
+          "x2": {"field": "x1"},
+          "y2": {"field": "y1"}
+        }
+      }
+    },
+    {
+      "type": "rect",
+      "from": {"data": "leaves"},
+      "encode": {
+        "enter": {"stroke": {"value": "#fff"}},
+        "update": {
+          "x": {"field": "x0"},
+          "y": {"field": "y0"},
+          "x2": {"field": "x1"},
+          "y2": {"field": "y1"},
+          "fill": {"value": "transparent"}
+        },
+        "hover": {"fill": {"value": "red"}}
+      }
+    },
+    {
+      "type": "text",
+      "from": {"data": "nodes"},
+      "interactive": false,
+      "encode": {
+        "enter": {
+          "font": {"value": "Helvetica Neue, Arial"},
+          "align": {"value": "center"},
+          "baseline": {"value": "middle"},
+          "fill": {"value": "#000"},
+          "text": {"field": "id"},
+          "fontSize": {"scale": "size", "field": "depth"},
+          "fillOpacity": {"scale": "opacity", "field": "depth"}
+        },
+        "update": {
+          "x": {"signal": "0.5 * (datum.x0 + datum.x1)"},
+          "y": {"signal": "0.5 * (datum.y0 + datum.y1)"}
+        }
+      }
+    },
+    {
+      "type": "text",
+      "from": {"data": "leaves"},
+      "encode": {
+        "enter": {
+          "font": {"value": "Helvetica Neue, Arial"},
+          "align": {"value": "center"},
+          "baseline": {"value": "middle"},
+          "fill": {"value": "#000"},
+          "text": {"field": "id"},
+          "fontSize": {"value": 12},
+          "fillOpacity": {"value": 1}
+        },
+        "update": {
+          "x": {"signal": "0.5 * (datum.x0 + datum.x1)"},
+          "y": {"signal": "0.5 * (datum.y0 + datum.y1)"}
+        }
+      }
+    },
+    {
+      "type": "rect",
+      "from": {"data": "leaves"},
+      "encode": {
+        "enter": {"fill": {"value": "transparent"}},
+        "update": {"fill": {"value": "transparent"}},
+        "hover": {"fill": {"value": "transparent"}}
+      }
+    },
+    {
+      "type": "text",
+      "from": {"data": "leaves"},
+      "encode": {
+        "enter": {
+          "text": {"signal": "datum.score"},
+          "fill": {"value": "black"},
+          "baseline": {"value": "middle"},
+          "align": {"value": "center"},
+          "fontSize": {"value": 12},
+          "fillOpacity": {"value": 1},
+          "tooltip": {"signal": "{'Loading Score': format(datum.score, '.3f')}"}
+        },
+        "update": {
+          "x": {"signal": "0.5 * (datum.x0 + datum.x1)"},
+          "y": {"signal": "0.5 * (datum.y0 + datum.y1)"},
+          "fillOpacity": {"value": 0},
+          "tooltip": {"signal": "{'Loading Score': format(datum.score, '.3f')}"}
+        },
+        "hover": {"fillOpacity": {"value": 1}}
+      }
+    }
+  ],
+  "config": {}
+};
+    vegaEmbed("#vis", spec, {mode: "vega"}).then(console.log).catch(console.warn);
+  </script>
+</body>
+</html>
