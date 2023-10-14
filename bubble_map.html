@@ -4,6 +4,36 @@
   <script src="https://cdn.jsdelivr.net/npm/vega@5.25.0"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.15.0"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.22.2"></script>
+  <style>
+    /* Styles for the track of the slider */
+    input[type="range"] {
+        -webkit-appearance: none;  /* Overriding browser default styles */
+        width: 15%;
+        height: 5px;
+        background: #d3d3d3;
+    }
+  
+    input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;  /* Overriding browser default styles */
+        width: 10px;
+        height: 10px;
+        background: #000000;  /* Black color for the thumb */
+        cursor: pointer;
+    }
+  
+    input[type="range"]::-moz-range-thumb {
+        width: 10px;
+        height: 10px;
+        background: #000000;  /* Black color for the thumb */
+        cursor: pointer;
+    }
+  
+    /* For Firefox - track styling */
+    input[type="range"]::-moz-range-track {
+        background: #d3d3d3;
+        height: 5px;
+    }
+  </style>
 </head>
 <body>
   <div id="vis"/>
@@ -13,10 +43,13 @@
   "description": "Bubble Map of International Students in Australian States",
   "background": "white",
   "padding": 5,
-  "width": 200,
+  "width": 950,
   "height": 200,
   "style": "view",
   "data": [
+    
+    
+    
     {
       "name": "source_0",
       "values": [
@@ -1195,29 +1228,17 @@
           "Total Students": 179326,
           "Longitude": 149.129,
           "Latitude": -35.282
-        },
-        {"State": "NAT", "Year": 2002, "Total Students": 0},
-        {"State": "NAT", "Year": 2003, "Total Students": 0},
-        {"State": "NAT", "Year": 2004, "Total Students": 0},
-        {"State": "NAT", "Year": 2005, "Total Students": 0},
-        {"State": "NAT", "Year": 2006, "Total Students": 0},
-        {"State": "NAT", "Year": 2007, "Total Students": 0},
-        {"State": "NAT", "Year": 2008, "Total Students": 0},
-        {"State": "NAT", "Year": 2009, "Total Students": 30},
-        {"State": "NAT", "Year": 2010, "Total Students": 168},
-        {"State": "NAT", "Year": 2011, "Total Students": 560},
-        {"State": "NAT", "Year": 2012, "Total Students": 2843},
-        {"State": "NAT", "Year": 2013, "Total Students": 5396},
-        {"State": "NAT", "Year": 2014, "Total Students": 1146},
-        {"State": "NAT", "Year": 2015, "Total Students": 132},
-        {"State": "NAT", "Year": 2016, "Total Students": 12},
-        {"State": "NAT", "Year": 2017, "Total Students": 0},
-        {"State": "NAT", "Year": 2018, "Total Students": 0},
-        {"State": "NAT", "Year": 2019, "Total Students": 0},
-        {"State": "NAT", "Year": 2020, "Total Students": 0},
-        {"State": "NAT", "Year": 2021, "Total Students": 0},
-        {"State": "NAT", "Year": 2022, "Total Students": 0}
+        }
       ]
+    },
+    
+    { "name": "source_1",
+      "url": "https://raw.githubusercontent.com/danielooi8898/3179/main/ne_110m_admin_0_countries.json",
+      "format": {
+        "type": "topojson",
+        "feature": "ne_110m_admin_0_countries",
+        "parse": {}
+      }  
     },
     {
       "name": "data_0",
@@ -1247,7 +1268,7 @@
       "name": "projection",
       "size": {"signal": "[width, height]"},
       "fit": {"signal": "geojson_0"},
-      "type": "equalEarth"
+      "type": "equirectangular"
     }
   ],
   "signals": [
@@ -1258,6 +1279,20 @@
     }
   ],
   "marks": [
+    {
+      "name": "layer_1_marks",
+      "type": "shape",
+      "style": ["geoshape"],
+      "from": {"data": "source_1"},
+      "encode": {
+        "update": {
+          "fill": {"value": "#F5F5F5"},
+          "stroke": {"value": "grey"},
+         
+        }
+      },
+      "transform": [{"type": "geoshape", "projection": "projection"}]
+    },
     {
       "name": "marks",
       "type": "symbol",
@@ -1280,14 +1315,30 @@
           "shape": {"value": "circle"}
         }
       }
+    },
+    {
+    "type": "text",
+    "from": {"data": "data_0"},
+    "encode": {
+      "enter": {
+        "x": {"field": "x"},
+        "y": {"field": "y"},
+        "text": {"field": "State"},
+        "fontSize": {"value": 5},
+        "fill": {"value": "white"},
+        "baseline": {"value": "middle"},
+        "align": {"value": "center"},
+        "zindex": {"value": 2} 
+      }
     }
+  }
   ],
   "scales": [
     {
       "name": "color",
       "type": "linear",
       "domain": {"data": "data_0", "field": "Total Students"},
-      "range": {"scheme": "viridis"},
+      "range": ["#99C2FF", "#000066"],
       "interpolate": "hcl",
       "zero": false
     },
@@ -1295,7 +1346,7 @@
       "name": "size",
       "type": "linear",
       "domain": {"data": "data_0", "field": "Total Students"},
-      "range": [0, 361],
+      "range": [500, 2500],
       "zero": true
     }
   ],
@@ -1306,12 +1357,14 @@
       "title": "Total Students",
       "encode": {"gradient": {"update": {"opacity": {"value": 0.7}}}},
       "symbolType": "circle",
-      "size": "size"
+      "size": "size",
+      "orient": "top-right"
     }
   ],
   "config": {}
 };
-    vegaEmbed("#vis", spec, {mode: "vega"}).then(console.log).catch(console.warn);
+
+    vegaEmbed("#vis", spec, {mode: "vega", actions: false}).then(console.log).catch(console.warn);
   </script>
 </body>
 </html>

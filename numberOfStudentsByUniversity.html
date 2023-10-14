@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>International Students by University</title>
+  <!-- Load Vega-Lite and Vega-Embed libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body>
+  <!-- Create a container div for the chart -->
+  <div id="chart-container"></div>
+
+  <script>
+    // Vega-Lite specification
+    var vlSpec = {
+      "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+      "data": {
+        "url": "https://raw.githubusercontent.com/danielooi8898/3179/main/numberOfStudentsByUniversities.csv",
+        "format": {"type": "csv"}
+      },
+      "mark": "bar",
+      "encoding": {
+        "x": {"field": "International Students", "type": "quantitative"},
+        "y": {"field": "University", "type": "nominal", "sort": "-x"},
+        "color": {
+          "field": "University",
+          "type": "nominal",
+          "scale": {"scheme": "category10"}  
+        },
+        "tooltip": [
+          {"field": "University", "type": "nominal"},
+          {"field": "International Students", "type": "quantitative"}
+        ]
+      },
+      "title": "",
+      "width": 600,
+      "height": 390,
+      "config": {}
+    };
+
+    // Embed the Vega-Lite chart into the specified container
+    vegaEmbed("#chart-container", vlSpec);
+  </script>
+</body>
+</html>

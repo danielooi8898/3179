@@ -6,6 +6,37 @@
   <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+  <style>
+    
+    /* Styles for the track of the slider */
+    input[type="range"] {
+        -webkit-appearance: none;  /* Overriding browser default styles */
+        width: 15%;
+        height: 5px;
+        background: #d3d3d3;
+    }
+  
+    input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;  /* Overriding browser default styles */
+        width: 10px;
+        height: 10px;
+        background: #000000;  /* Black color for the thumb */
+        cursor: pointer;
+    }
+  
+    input[type="range"]::-moz-range-thumb {
+        width: 10px;
+        height: 10px;
+        background: #000000;  /* Black color for the thumb */
+        cursor: pointer;
+    }
+  
+    /* For Firefox - track styling */
+    input[type="range"]::-moz-range-track {
+        background: #d3d3d3;
+        height: 5px;
+    }
+  </style>
 </head>
 <body>
   <label for="selectedYear">Select Year:</label>
@@ -18,26 +49,26 @@
     // Sample dataset for Australia and New Zealand
     const data = {
       values: [
-        {"year": "2013", "country": "New Zealand", "value": 348685},
-        {"year": "2013", "country": "Australia", "value": 245531},
-        {"year": "2014", "country": "New Zealand", "value": 347645},
-        {"year": "2014", "country": "Australia", "value": 247093},
-        {"year": "2015", "country": "New Zealand", "value": 350440},
-        {"year": "2015", "country": "Australia", "value": 269752},
-        {"year": "2016", "country": "New Zealand", "value": 353120},
-        {"year": "2016", "country": "Australia", "value": 292352},
-        {"year": "2017", "country": "New Zealand", "value": 346045},
-        {"year": "2017", "country": "Australia", "value": 327606},
-        {"year": "2018", "country": "New Zealand", "value": 340710},
-        {"year": "2018", "country": "Australia", "value": 371885},
-        {"year": "2019", "country": "New Zealand", "value": 335365},
-        {"year": "2019", "country": "Australia", "value": 420501},
-        {"year": "2020", "country": "New Zealand", "value": 328250},
-        {"year": "2020", "country": "Australia", "value": 463643},
-        {"year": "2021", "country": "New Zealand", "value": 345005},
-        {"year": "2021", "country": "Australia", "value": 429382},
-        {"year": "2022", "country": "New Zealand", "value": 329690},
-        {"year": "2022", "country": "Australia", "value": 363859}
+        {"year": "2013", "country": "New Zealand", "Number Of Students": 348685},
+        {"year": "2013", "country": "Australia", "Number Of Students": 245531},
+        {"year": "2014", "country": "New Zealand", "Number Of Students": 347645},
+        {"year": "2014", "country": "Australia", "Number Of Students": 247093},
+        {"year": "2015", "country": "New Zealand", "Number Of Students": 350440},
+        {"year": "2015", "country": "Australia", "Number Of Students": 269752},
+        {"year": "2016", "country": "New Zealand", "Number Of Students": 353120},
+        {"year": "2016", "country": "Australia", "Number Of Students": 292352},
+        {"year": "2017", "country": "New Zealand", "Number Of Students": 346045},
+        {"year": "2017", "country": "Australia", "Number Of Students": 327606},
+        {"year": "2018", "country": "New Zealand", "Number Of Students": 340710},
+        {"year": "2018", "country": "Australia", "Number Of Students": 371885},
+        {"year": "2019", "country": "New Zealand", "Number Of Students": 335365},
+        {"year": "2019", "country": "Australia", "Number Of Students": 420501},
+        {"year": "2020", "country": "New Zealand", "Number Of Students": 328250},
+        {"year": "2020", "country": "Australia", "Number Of Students": 463643},
+        {"year": "2021", "country": "New Zealand", "Number Of Students": 345005},
+        {"year": "2021", "country": "Australia", "Number Of Students": 429382},
+        {"year": "2022", "country": "New Zealand", "Number Of Students": 329690},
+        {"year": "2022", "country": "Australia", "Number Of Students": 363859}
       ]
     };
 
@@ -45,32 +76,27 @@
     const spec = {
       "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
       "width": 800, // Increase width
-      "height": 200, // Increase height
+      "height": 320, // Increase height
       "data": data,
-      "mark": {"type": "bar", "tooltip": true},
+      "mark": {"type": "arc", "tooltip": true, "innerRadius": 50}, // Added innerRadius for donut-style pie chart
       "encoding": {
-        "y": {
-          "field": "country",
-          "type": "nominal",
-          "title": "Country",
-          "axis": {"labelFont": "sans-serif"},
-          "sort": {"op": "sum", "field": "value", "order": "descending"}
-        },
-        "x": {
-          "field": "value",
+        "theta": {
+          "field": "Number Of Students",
           "type": "quantitative",
-          "title": "Number of Students",
-          "axis": {"labelFont": "sans-serif"}
+          "stack": true
         },
         "color": {
           "field": "country",
           "type": "nominal",
           "scale": {
-            "range": ["#1f77b4", "#ff7f0e"] // Color-blind-friendly palette
+            "range": ["#56B4E9", "#F0E442"] // Color-blind-friendly palette
+          },
+          "legend": {
+            "title": "Country"
           }
-        }
+        },
       },
-      "title": {"text": "Number of Students in Australia vs. New Zealand", "font": "sans-serif", "fontSize": 20}, // Increase title fontSize
+      "title": {"text": "", "font": "sans-serif", "fontSize": 14},
       "config": {
         "view": {"stroke": "transparent"}
       }
@@ -105,6 +131,8 @@
     // Initial chart rendering with the default year
     const initialYear = selectedYearSlider.value;
     updateChart(initialYear);
+    vegaEmbed("#vis", spec, {mode: "vega", actions: false}).then(console.log).catch(console.warn);
+
   </script>
 </body>
 </html>

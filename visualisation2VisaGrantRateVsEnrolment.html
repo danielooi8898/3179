@@ -8,6 +8,36 @@
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
   <!-- Include Vega Tooltip -->
   <script src="https://cdn.jsdelivr.net/npm/vega-tooltip@0.25.0"></script>
+  <style>
+    /* Styles for the track of the slider */
+    input[type="range"] {
+        -webkit-appearance: none;  /* Overriding browser default styles */
+        width: 15%;
+        height: 5px;
+        background: #d3d3d3;
+    }
+  
+    input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;  /* Overriding browser default styles */
+        width: 10px;
+        height: 10px;
+        background: #000000;  /* Black color for the thumb */
+        cursor: pointer;
+    }
+  
+    input[type="range"]::-moz-range-thumb {
+        width: 10px;
+        height: 10px;
+        background: #000000;  /* Black color for the thumb */
+        cursor: pointer;
+    }
+  
+    /* For Firefox - track styling */
+    input[type="range"]::-moz-range-track {
+        background: #d3d3d3;
+        height: 5px;
+    }
+  </style>
 </head>
 <body>
   <div id="vis"></div>
@@ -40,12 +70,32 @@
     const spec = {
       "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
       "width": 800, // Increase width
-      "height": 200, // Increase height
+      "height": 320, // Increase height
       "data": data,
-      "title": {"text": "Relationship between Visa Grant Rate and Number of International Students", "fontSize": 20}, // Set fontSize to 20 for the title
+      "title": {"text": "", "fontSize": 10}, // Set fontSize to 20 for the title
       "layer": [
+      {
+        
+  "mark": {
+    "type": "text",
+    "align": "left",
+    "baseline": "middle",
+    "dx": 10,
+    "dy": -10,
+    "fontSize": 12,
+    "fontWeight": "normal"
+  },
+  "data": {
+    "values": [{"text": "Drop in visa grant rate and student numbers in 2020-2022 due to COVID-19"}]
+  },
+  "encoding": {
+    "text": {"field": "text", "type": "nominal"},
+    "x": {"value": 300},
+    "y": {"value": 250}
+  }
+},
         {
-          "mark": "line",
+          "mark": "point",
           "encoding": {
             "x": {
               "field": "year",
@@ -59,16 +109,16 @@
               "title": "Visa Grant Rate",
               "axis": {"orient": "right"}
             },
-            "color": {"value": "green"}, // Set color to green for Visa Grant Rate
+            "color": {"value": "#008000"}, // Set color to green for Visa Grant Rate
             "tooltip": [ // Add tooltip configuration
               {"field": "year", "title": "Year", "type": "temporal", "format": "%Y"},
               {"field": "visa_grant_rate", "title": "Visa Grant Rate", "type": "quantitative"},
-              {"field": "international_students", "title": "Number of International Students", "type": "quantitative"}
+              {"field": "international_students", "title": "Number of Students", "type": "quantitative"}
             ]
           }
         },
         {
-          "mark": "line",
+          "mark": "point",
           "encoding": {
             "x": {
               "field": "year",
@@ -82,11 +132,11 @@
               "title": "Number of International Students",
               "axis": {"orient": "left"}
             },
-            "color": {"value": "blue"}, // Set color to blue for Number of International Students
+            "color": {"value": "#800080"}, // Set color to blue for Number of International Students
             "tooltip": [ // Add tooltip configuration
               {"field": "year", "title": "Year", "type": "temporal", "format": "%Y"},
               {"field": "visa_grant_rate", "title": "Visa Grant Rate", "type": "quantitative"},
-              {"field": "international_students", "title": "Number of International Students", "type": "quantitative"}
+              {"field": "international_students", "title": "Number of Students", "type": "quantitative"}
             ]
           }
         }
@@ -96,6 +146,7 @@
         "view": {"stroke": "transparent"},
         "axis": {"grid": false}
       }
+      
     };
 
     // Function to update the chart based on the selected year range
@@ -126,8 +177,8 @@
     function updateLegend() {
       // You can customize the legend content here based on your requirements
       const legendHTML = `
-        <div><span style="color: green;">&#9679;</span> Visa Grant Rate</div>
-        <div><span style="color: blue;">&#9679;</span> Number of Students</div>
+        <div><span style="color: #008000;">&#9679;</span> Visa Grant Rate</div>
+        <div><span style="color: #800080;">&#9679;</span> Number of Students</div>
       `;
 
       // Update the legend div with the new content
@@ -157,7 +208,7 @@
     });
 
     // Initial chart rendering
-    vegaEmbed("#vis", spec);
+    vegaEmbed("#vis", spec, {mode: "vega", actions: false}).then(console.log).catch(console.warn);
     updateLegend(); // Initialize the legend
   </script>
 </body>

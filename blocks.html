@@ -4,6 +4,36 @@
   <script src="https://cdn.jsdelivr.net/npm/vega@5.25.0"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.15.0"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.22.2"></script>
+  <style>
+    /* Styles for the track of the slider */
+    input[type="range"] {
+        -webkit-appearance: none;  /* Overriding browser default styles */
+        width: 15%;
+        height: 5px;
+        background: #d3d3d3;
+    }
+  
+    input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;  /* Overriding browser default styles */
+        width: 10px;
+        height: 10px;
+        background: #000000;  /* Black color for the thumb */
+        cursor: pointer;
+    }
+  
+    input[type="range"]::-moz-range-thumb {
+        width: 10px;
+        height: 10px;
+        background: #000000;  /* Black color for the thumb */
+        cursor: pointer;
+    }
+  
+    /* For Firefox - track styling */
+    input[type="range"]::-moz-range-track {
+        background: #d3d3d3;
+        height: 5px;
+    }
+  </style>
 </head>
 <body>
   <div id="vis"/>
@@ -11,8 +41,8 @@
     const spec = {
   "$schema": "https://vega.github.io/schema/vega/v5.json",
   "description": "Factors Affecting Students' Country Selection",
-  "width": 960,
-  "height": 500,
+  "width": 940,
+  "height": 380,
   "padding": 2.5,
   "autosize": "none",
   "signals": [
@@ -417,26 +447,8 @@
       "type": "ordinal",
       "domain": {"data": "nodes", "field": "id"},
       "range": [
-        "#3182bd",
-        "#6baed6",
-        "#9ecae1",
-        "#c6dbef",
-        "#e6550d",
-        "#fd8d3c",
-        "#fdae6b",
-        "#fdd0a2",
-        "#31a354",
-        "#74c476",
-        "#a1d99b",
-        "#c7e9c0",
-        "#756bb1",
-        "#9e9ac8",
-        "#bcbddc",
-        "#dadaeb",
-        "#636363",
-        "#969696",
-        "#bdbdbd",
-        "#d9d9d9"
+      "#08306b", "#08519c", "#2171b5", "#4292c6", "#6baed6", 
+  "#9ecae1", "#c6dbef", "#deebf7", "#eff3ff"
       ]
     },
     {
@@ -498,7 +510,8 @@
         },
         "update": {
           "x": {"signal": "0.5 * (datum.x0 + datum.x1)"},
-          "y": {"signal": "0.5 * (datum.y0 + datum.y1)"}
+          "y": {"signal": "0.5 * (datum.y0 + datum.y1)"},
+          "text": {"signal": "datum.id === 'root' ? '' : datum.id"}
         }
       }
     },
@@ -555,7 +568,7 @@
   ],
   "config": {}
 };
-    vegaEmbed("#vis", spec, {mode: "vega"}).then(console.log).catch(console.warn);
+vegaEmbed("#vis", spec, {mode: "vega", actions: false}).then(console.log).catch(console.warn);
   </script>
 </body>
 </html>
