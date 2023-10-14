@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-image: url('visualisationBackground.jpeg'); /* Specify your image URL here */
+            background-size: cover;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            text-align: center; /* Center align the content */
+        }
+        h1, h2, h3 {
+            text-align: center;
+        }
+        .viz-container {
+            width: 98%; /* Make the divs smaller */
+            margin: 20px auto; /* Center align the divs */
+            border: 2px solid #ddd; /* Add a border for separation */
+            padding: 10px;
+            border-radius: 5px;
+            background-color: white;
+        }
+        iframe {
+            width: 100%; /* Occupy 100% of the parent div */
+            height: 450px;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>International Students Enrolment</h1>
+        <p>the number of international students around the world was <b>steadily increasing</b>. Millions of students from various countries chose to pursue higher education abroad, seeking diverse academic experiences and opportunities. This global trend was driven by factors such as the desire for <b>quality education, cultural exposure, and career prospects</b>. Nations like the <b>United States, the United Kingdom, Australia, and Canada</b> remained popular destinations for international students due to their renowned universities and colleges.</p>
+        <p>Hence the main task of this visualization is to compare the <B>number of students</B> enrolled in different countries, analyze the <B>contributing factors</B> to students' decisions to study in a particular country, visualize which <b>Australian state</b> has the highest number of students, analyze the relationship between <b>visa grant rate and the number of enrollments</b>, and finally compare the number of students in <b>Australia and New Zealand</b>.</p>
+
+        <div class="viz-container">
+            <h3>Number Of International Students By Countries</h3>
+            <iframe src="choropleth_map.html"></iframe>
+        </div>
+        <p>The choropleth map shows the number of international student enrollments by countries from <b>2013 to 2022</b>, with a focus on countries such as the USA, UK, and Australia. Throughout the years, the <b>United States</b> has more students than any other countries in the world. For <b>Australia</b>, it has been slowly <b>increasing</b> from time to time. Other countries like <b>Japan, Philippines, New Zealand, Argentina </b> etc, also has quite a number of international students enrolled in their local universities.</p>
+
+        <div class="viz-container">
+            <h3>The contributing factors to students' decision to study in a particular country</h3>
+            <iframe src="blocks.html"></iframe>
+        </div>
+        <p>In a comprehensive study conducted by researchers, data were collected from <b>international students</b> studying in <b>Germany</b> and the <b>United Kingdom (UK)</b>. The qualitative phase of this research identified six pivotal themes: <b>academic</b>, <b>social</b>, <b>personal</b>, <b>financial</b>, <b>career</b>, and <b>marketing</b>, which heavily influence students' decisions to study abroad. These findings align with the factors categorized in a questionnaire-based study by <b>Abbas et al. (2021)</b>. Empirical analyses revealed that students in both countries prioritize <b>academic reputation</b> when selecting a country for <b>higher education institutions (HEIs)</b>. However, intriguing variations emerged in the subsequent themes. Furthermore, it was observed that <b>international students in Germany</b> exhibited a higher level of satisfaction with their choice of country compared to their counterparts in the <b>UK</b>. You can hover over each tile in <b>Abbas et al.'s research</b> to view the <b>percentage</b> of students who selected each specific factor.</p>
+        <div class="viz-container">
+            <h3>Number Of International Students In Australia By States</h3>
+            <iframe src="bubble_map.html"></iframe>
+        </div>
+        <p>The bubble map shows that <b>Victoria</b> and <b>New South Wales</b> have the highest number of student enrollments, while <b>Tasmania has the least</b>.</p>
+<div class="viz-container">
+    <h3>Which University Has The Highest Number Of International Students</h3>
+    <iframe src="numberOfStudentsByUniversity.html"></iframe>
+</div>
+<p>The visualization provides insights into the <b>international student population</b> at universities in <b>Australia</b> for the year <b>2023</b>. It offers a <b>comparative overview</b> of the number of <b>international students</b> enrolled in various institutions across the country. This data is essential for understanding the higher education landscape and the attractiveness of Australian universities to <b>international students</b>, which contributes significantly to the country's <b>multicultural</b> and <b>diverse academic environment</b>. Such information is valuable for <b>policymakers</b>, <b>educators</b>, and students interested in global education trends and <b>international mobility</b>.</p>
+        <!-- Bar chart -->
+        <div class="viz-container">
+            <h3>Number of International Students in Australia vs. New Zealand</h3>
+            <iframe src="visualisation2NewZealandVsAustralia.html"></iframe>
+        </div>
+        <p>At the beginning, from 2013 to 2017, <b>New Zealand has more international students than Australia</b>, from 2017 until today, <b>Australia has outperformed New Zealand</b> in terms of acquiring international students enrolments.</p>
+
+        <!-- Line chart -->
+        <div class="viz-container">
+            <h3>Relationship between Visa Grant Rate and Number of International Students</h3>
+            <iframe src="visualisation2VisaGrantRateVsEnrolment.html"></iframe>
+        </div>
+        <p>There is a <b>positive relationship</b> between visa grant rate and number of international students. When Visa grant rate increases, number of students increases, and vice versa. Particularly from 2020 onwards, the visa grant rate has decreased due to <b>covid-19</b>, causing number of international students to decrease as well. Number of students are not as much compared to pre-covid era</p>
+    </div>
+</body>
+</html>
